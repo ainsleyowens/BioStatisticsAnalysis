@@ -178,3 +178,312 @@ You can add options to executable code like this
 
 
 The `echo: false` option disables the printing of code (only output is displayed).
+
+## About Our Data
+
+The data we are working with is a dataset on penguins, which includes 8 features measured on 44 penguins. The features included are physiological features (like bill length, bill depth, flipper length, body mass, etc) as well as other features like the year that the penguin was observed, the island the penguin was observed on, the sex, and the species of the penguin.
+
+## Interesting Questions to Ask
+
+-   What is the average flipper length? What about for each species?
+
+-   Are there more male or female penguins? What about per island or species?
+
+-   What is the average body mass? What about by island? By species? By sex?
+
+-   What is the ratio of bill length to bill depth for a penguin? What is the overall average of this metric? Does it change by species, sex, or island?
+
+-   Does average body mass change by year?
+
+    ## Data Manipulation Tools and Strategies
+
+    We can look at individual columns in a data set or subsets of columns in a dataset. For example, if we are only interested in flipper length and species, we can `select()` those columns.
+
+
+    ::: {.cell}
+    
+    ```{.r .cell-code}
+    penguins %>%
+      select(species, body_mass_g) 
+    ```
+    
+    ::: {.cell-output .cell-output-stdout}
+    ```
+    # A tibble: 44 × 2
+       species body_mass_g
+       <chr>         <dbl>
+     1 Gentoo         6050
+     2 Gentoo         5800
+     3 Gentoo         5550
+     4 Gentoo         5500
+     5 Gentoo         5850
+     6 Gentoo         5950
+     7 Gentoo         5700
+     8 Gentoo         5350
+     9 Gentoo         5550
+    10 Gentoo         6300
+    # … with 34 more rows
+    ```
+    :::
+    :::
+
+
+If we want to `filter()` and only show certain rows, we can do that too.
+
+
+::: {.cell}
+
+```{.r .cell-code}
+#we can filter by species (categorical variables) 
+penguins %>%
+  filter(species == "Chinstrap") 
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+# A tibble: 2 × 8
+  species   island bill_length_mm bill_depth_mm flipper_le…¹ body_…² sex    year
+  <chr>     <chr>           <dbl>         <dbl>        <dbl>   <dbl> <chr> <dbl>
+1 Chinstrap Dream            55.8          19.8          207    4000 male   2009
+2 Chinstrap Dream            46.6          17.8          193    3800 fema…  2007
+# … with abbreviated variable names ¹​flipper_length_mm, ²​body_mass_g
+```
+:::
+
+```{.r .cell-code}
+#we can also filter by numerical variables
+penguins %>%
+  filter(body_mass_g >= 6000)
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+# A tibble: 2 × 8
+  species island bill_length_mm bill_depth_mm flipper_leng…¹ body_…² sex    year
+  <chr>   <chr>           <dbl>         <dbl>          <dbl>   <dbl> <chr> <dbl>
+1 Gentoo  Biscoe           59.6          17              230    6050 male   2007
+2 Gentoo  Biscoe           49.2          15.2            221    6300 male   2007
+# … with abbreviated variable names ¹​flipper_length_mm, ²​body_mass_g
+```
+:::
+
+```{.r .cell-code}
+#we can also do both
+penguins %>% 
+  filter ((body_mass_g >= 6000)|(island == "Torgersen"))
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+# A tibble: 7 × 8
+  species island    bill_length_mm bill_depth_mm flipper_l…¹ body_…² sex    year
+  <chr>   <chr>              <dbl>         <dbl>       <dbl>   <dbl> <chr> <dbl>
+1 Gentoo  Biscoe              59.6          17           230    6050 male   2007
+2 Gentoo  Biscoe              49.2          15.2         221    6300 male   2007
+3 Adelie  Torgersen           40.6          19           199    4000 male   2009
+4 Adelie  Torgersen           38.8          17.6         191    3275 fema…  2009
+5 Adelie  Torgersen           41.1          18.6         189    3325 male   2009
+6 Adelie  Torgersen           38.6          17           188    2900 fema…  2009
+7 Adelie  Torgersen           36.2          17.2         187    3150 fema…  2009
+# … with abbreviated variable names ¹​flipper_length_mm, ²​body_mass_g
+```
+:::
+:::
+
+
+## Answering Our Questions
+
+Most of our questions involve summarizing data, and perhaps summarizing over groups. We can summarize data using the `summarize()` function and group data using `group_by()`.
+
+Let's find the average flipper length.
+
+
+::: {.cell}
+
+```{.r .cell-code}
+#Overall average flipper length
+penguins %>%
+  summarize(avg_flipper_length = mean(flipper_length_mm))
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+# A tibble: 1 × 1
+  avg_flipper_length
+               <dbl>
+1               212.
+```
+:::
+
+```{.r .cell-code}
+#Single Species Average
+penguins %>%
+  filter(species == "Gentoo") %>%
+  summarize(avg_flipper_length = mean(flipper_length_mm))
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+# A tibble: 1 × 1
+  avg_flipper_length
+               <dbl>
+1               218.
+```
+:::
+
+```{.r .cell-code}
+#Grouped Average
+penguins %>%
+  group_by(species) %>%
+  summarize(avg_flipper_length = mean(flipper_length_mm))
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+# A tibble: 3 × 2
+  species   avg_flipper_length
+  <chr>                  <dbl>
+1 Adelie                  189.
+2 Chinstrap               200 
+3 Gentoo                  218.
+```
+:::
+:::
+
+
+How many of each species do we have?
+
+
+::: {.cell}
+
+```{.r .cell-code}
+penguins %>%
+  count(species)
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+# A tibble: 3 × 2
+  species       n
+  <chr>     <int>
+1 Adelie        9
+2 Chinstrap     2
+3 Gentoo       33
+```
+:::
+:::
+
+
+How many of each sex are there? What about by island or species?
+
+
+::: {.cell}
+
+```{.r .cell-code}
+penguins %>% 
+  count(sex)
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+# A tibble: 2 × 2
+  sex        n
+  <chr>  <int>
+1 female    20
+2 male      24
+```
+:::
+
+```{.r .cell-code}
+penguins%>%
+  group_by(species) %>%
+  count(sex)
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+# A tibble: 6 × 3
+# Groups:   species [3]
+  species   sex        n
+  <chr>     <chr>  <int>
+1 Adelie    female     6
+2 Adelie    male       3
+3 Chinstrap female     1
+4 Chinstrap male       1
+5 Gentoo    female    13
+6 Gentoo    male      20
+```
+:::
+:::
+
+
+We can use `mutate()` to add new columns to our data set.
+
+
+::: {.cell}
+
+```{.r .cell-code}
+#To make a permanet change, we need to store the results of our manipulations
+penguins_with_ratio <- penguins %>%
+  mutate(bill_ltd_ratio = bill_length_mm /bill_depth_mm)
+
+#Average Ratio 
+penguins %>%
+  mutate(bill_ltd_ratio = bill_length_mm /bill_depth_mm) %>%
+  summarize (mean_bill_ltd_ratio = mean(bill_ltd_ratio),
+             median_bill_ltd_ratio = median(bill_ltd_ratio))
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+# A tibble: 1 × 2
+  mean_bill_ltd_ratio median_bill_ltd_ratio
+                <dbl>                 <dbl>
+1                2.95                  3.06
+```
+:::
+
+```{.r .cell-code}
+#Average Ratio by Group
+penguins %>%
+  mutate(bill_ltd_ratio = bill_length_mm /bill_depth_mm) %>%
+  group_by(species) %>%
+  summarize (mean_bill_ltd_ratio = mean(bill_ltd_ratio),
+             median_bill_ltd_ratio = median(bill_ltd_ratio))
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+# A tibble: 3 × 3
+  species   mean_bill_ltd_ratio median_bill_ltd_ratio
+  <chr>                   <dbl>                 <dbl>
+1 Adelie                   2.20                  2.20
+2 Chinstrap                2.72                  2.72
+3 Gentoo                   3.17                  3.13
+```
+:::
+:::
+
+
+Average body mass by year
+
+
+::: {.cell}
+
+```{.r .cell-code}
+penguins %>%
+  group_by(year) %>%
+  summarize(mean_body_mass = mean(body_mass_g))
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+# A tibble: 3 × 2
+   year mean_body_mass
+  <dbl>          <dbl>
+1  2007          5079.
+2  2008          4929.
+3  2009          4518.
+```
+:::
+:::

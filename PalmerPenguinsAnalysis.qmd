@@ -38,3 +38,122 @@ You can add options to executable code like this
 ```
 
 The `echo: false` option disables the printing of code (only output is displayed).
+
+## About Our Data
+
+The data we are working with is a dataset on penguins, which includes 8 features measured on 44 penguins. The features included are physiological features (like bill length, bill depth, flipper length, body mass, etc) as well as other features like the year that the penguin was observed, the island the penguin was observed on, the sex, and the species of the penguin.
+
+## Interesting Questions to Ask
+
+-   What is the average flipper length? What about for each species?
+
+-   Are there more male or female penguins? What about per island or species?
+
+-   What is the average body mass? What about by island? By species? By sex?
+
+-   What is the ratio of bill length to bill depth for a penguin? What is the overall average of this metric? Does it change by species, sex, or island?
+
+-   Does average body mass change by year?
+
+    ## Data Manipulation Tools and Strategies
+
+    We can look at individual columns in a data set or subsets of columns in a dataset. For example, if we are only interested in flipper length and species, we can `select()` those columns.
+
+    ```{r}
+    penguins %>%
+      select(species, body_mass_g) 
+      
+
+    ```
+
+If we want to `filter()` and only show certain rows, we can do that too.
+
+```{r}
+#we can filter by species (categorical variables) 
+penguins %>%
+  filter(species == "Chinstrap") 
+#we can also filter by numerical variables
+penguins %>%
+  filter(body_mass_g >= 6000)
+#we can also do both
+penguins %>% 
+  filter ((body_mass_g >= 6000)|(island == "Torgersen"))
+
+
+
+```
+
+## Answering Our Questions
+
+Most of our questions involve summarizing data, and perhaps summarizing over groups. We can summarize data using the `summarize()` function and group data using `group_by()`.
+
+Let's find the average flipper length.
+
+```{r}
+#Overall average flipper length
+penguins %>%
+  summarize(avg_flipper_length = mean(flipper_length_mm))
+
+#Single Species Average
+penguins %>%
+  filter(species == "Gentoo") %>%
+  summarize(avg_flipper_length = mean(flipper_length_mm))
+
+#Grouped Average
+penguins %>%
+  group_by(species) %>%
+  summarize(avg_flipper_length = mean(flipper_length_mm))
+  
+
+
+```
+
+How many of each species do we have?
+
+```{r}
+penguins %>%
+  count(species)
+```
+
+How many of each sex are there? What about by island or species?
+
+```{r}
+penguins %>% 
+  count(sex)
+
+penguins%>%
+  group_by(species) %>%
+  count(sex)
+ 
+  
+```
+
+We can use `mutate()` to add new columns to our data set.
+
+```{r}
+#To make a permanet change, we need to store the results of our manipulations
+penguins_with_ratio <- penguins %>%
+  mutate(bill_ltd_ratio = bill_length_mm /bill_depth_mm)
+
+#Average Ratio 
+penguins %>%
+  mutate(bill_ltd_ratio = bill_length_mm /bill_depth_mm) %>%
+  summarize (mean_bill_ltd_ratio = mean(bill_ltd_ratio),
+             median_bill_ltd_ratio = median(bill_ltd_ratio))
+
+#Average Ratio by Group
+penguins %>%
+  mutate(bill_ltd_ratio = bill_length_mm /bill_depth_mm) %>%
+  group_by(species) %>%
+  summarize (mean_bill_ltd_ratio = mean(bill_ltd_ratio),
+             median_bill_ltd_ratio = median(bill_ltd_ratio))
+
+```
+
+Average body mass by year
+
+```{r}
+penguins %>%
+  group_by(year) %>%
+  summarize(mean_body_mass = mean(body_mass_g))
+```
