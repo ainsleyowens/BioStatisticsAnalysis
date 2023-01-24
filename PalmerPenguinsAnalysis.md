@@ -487,3 +487,211 @@ penguins %>%
 ```
 :::
 :::
+
+
+## Data Visualization 
+
+-   What is the distribution of penguin flipper lengths?
+
+-   What is the distribution of penguin species?
+
+-   Does the distribution of flipper length depend on the species of penguin?
+
+-   Is there a correlation between bill length and bill depth?
+
+
+::: {.cell}
+
+```{.r .cell-code}
+penguins %>%
+  ggplot () +
+  geom_histogram( aes(x = flipper_length_mm), 
+                  bins = 15, 
+                  fill = "pink" , 
+                  color = "black")+
+  labs(title = "Distribution of Flipper Length (mm)
+       Mean in Black, Median in Blue", 
+       y = "", x = "Flipper Length (mm)") +
+  geom_vline (aes(xintercept = mean(flipper_length_mm)) , lwd = 2, lty = "dashed") +
+  geom_vline (aes(xintercept = median (flipper_length_mm)), color = "lightblue" , lwd = 2, lty = "solid")
+```
+
+::: {.cell-output .cell-output-stderr}
+```
+Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.
+```
+:::
+
+::: {.cell-output-display}
+![](PalmerPenguinsAnalysis_files/figure-html/unnamed-chunk-10-1.png){width=672}
+:::
+:::
+
+
+We will now look at the distribution of species.
+
+
+::: {.cell}
+
+```{.r .cell-code}
+penguins %>%
+  ggplot() +
+  geom_bar(mapping = aes(x = species), fill = "pink", color= "black") +
+  labs(title = "Counts of Penguin Species" , x = "Species", y = "Count")
+```
+
+::: {.cell-output-display}
+![](PalmerPenguinsAnalysis_files/figure-html/unnamed-chunk-11-1.png){width=672}
+:::
+:::
+
+
+Let's make a scatter plot to determine if bill length is correlated with bill depth.
+
+
+::: {.cell}
+
+```{.r .cell-code}
+penguins %>%
+ ggplot() +
+  geom_point(aes (x= bill_length_mm, y= bill_depth_mm, color = species))+
+  geom_smooth(aes (x= bill_length_mm, y=bill_depth_mm, color = species))
+```
+
+::: {.cell-output .cell-output-stderr}
+```
+`geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+```
+:::
+
+::: {.cell-output .cell-output-stderr}
+```
+Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : span too small. fewer data values than degrees of freedom.
+```
+:::
+
+::: {.cell-output .cell-output-stderr}
+```
+Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : at 46.554
+```
+:::
+
+::: {.cell-output .cell-output-stderr}
+```
+Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : radius 0.002116
+```
+:::
+
+::: {.cell-output .cell-output-stderr}
+```
+Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : all data on boundary of neighborhood. make span bigger
+```
+:::
+
+::: {.cell-output .cell-output-stderr}
+```
+Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : pseudoinverse used at 46.554
+```
+:::
+
+::: {.cell-output .cell-output-stderr}
+```
+Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : neighborhood radius 0.046
+```
+:::
+
+::: {.cell-output .cell-output-stderr}
+```
+Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : reciprocal condition number 1
+```
+:::
+
+::: {.cell-output .cell-output-stderr}
+```
+Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : at 55.846
+```
+:::
+
+::: {.cell-output .cell-output-stderr}
+```
+Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : radius 0.002116
+```
+:::
+
+::: {.cell-output .cell-output-stderr}
+```
+Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : all data on boundary of neighborhood. make span bigger
+```
+:::
+
+::: {.cell-output .cell-output-stderr}
+```
+Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : There are other near singularities as well. 0.002116
+```
+:::
+
+::: {.cell-output .cell-output-stderr}
+```
+Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : zero-width neighborhood. make span bigger
+
+Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : zero-width neighborhood. make span bigger
+```
+:::
+
+::: {.cell-output .cell-output-stderr}
+```
+Warning: Computation failed in `stat_smooth()`
+Caused by error in `predLoess()`:
+! NA/NaN/Inf in foreign function call (arg 5)
+```
+:::
+
+::: {.cell-output-display}
+![](PalmerPenguinsAnalysis_files/figure-html/unnamed-chunk-12-1.png){width=672}
+:::
+:::
+
+::: {.cell}
+
+```{.r .cell-code}
+n_samps <- 1000
+sample_means <- rep(NA, n_samps)
+for(i in 1:n_samps){
+  my_samp <- penguins %>%
+    sample_n(nrow(penguins), replace = TRUE)
+  sample_means[i] <- my_samp %>%
+    summarize(mean = mean(flipper_length_mm, na.rm = TRUE)) %>%
+    pull(mean)
+}
+
+ggplot() +
+  geom_histogram(aes(x = sample_means)) +
+  labs(title = "Distribution of Bootstrap Samples",
+       x = "Sample Mean Flipper Lengths (mm)",
+       y = "")
+```
+
+::: {.cell-output .cell-output-stderr}
+```
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+```
+:::
+
+::: {.cell-output-display}
+![](PalmerPenguinsAnalysis_files/figure-html/unnamed-chunk-13-1.png){width=672}
+:::
+:::

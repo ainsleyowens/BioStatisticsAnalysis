@@ -157,3 +157,65 @@ penguins %>%
   group_by(year) %>%
   summarize(mean_body_mass = mean(body_mass_g))
 ```
+
+## Data Visualization 
+
+-   What is the distribution of penguin flipper lengths?
+
+-   What is the distribution of penguin species?
+
+-   Does the distribution of flipper length depend on the species of penguin?
+
+-   Is there a correlation between bill length and bill depth?
+
+```{r}
+penguins %>%
+  ggplot () +
+  geom_histogram( aes(x = flipper_length_mm), 
+                  bins = 15, 
+                  fill = "pink" , 
+                  color = "black")+
+  labs(title = "Distribution of Flipper Length (mm)
+       Mean in Black, Median in Blue", 
+       y = "", x = "Flipper Length (mm)") +
+  geom_vline (aes(xintercept = mean(flipper_length_mm)) , lwd = 2, lty = "dashed") +
+  geom_vline (aes(xintercept = median (flipper_length_mm)), color = "lightblue" , lwd = 2, lty = "solid")
+
+                  
+```
+
+We will now look at the distribution of species.
+
+```{r}
+penguins %>%
+  ggplot() +
+  geom_bar(mapping = aes(x = species), fill = "pink", color= "black") +
+  labs(title = "Counts of Penguin Species" , x = "Species", y = "Count")
+```
+
+Let's make a scatter plot to determine if bill length is correlated with bill depth.
+
+```{r}
+penguins %>%
+ ggplot() +
+  geom_point(aes (x= bill_length_mm, y= bill_depth_mm, color = species))+
+  geom_smooth(aes (x= bill_length_mm, y=bill_depth_mm, color = species))
+```
+
+```{r}
+n_samps <- 1000
+sample_means <- rep(NA, n_samps)
+for(i in 1:n_samps){
+  my_samp <- penguins %>%
+    sample_n(nrow(penguins), replace = TRUE)
+  sample_means[i] <- my_samp %>%
+    summarize(mean = mean(flipper_length_mm, na.rm = TRUE)) %>%
+    pull(mean)
+}
+
+ggplot() +
+  geom_histogram(aes(x = sample_means)) +
+  labs(title = "Distribution of Bootstrap Samples",
+       x = "Sample Mean Flipper Lengths (mm)",
+       y = "")
+```
