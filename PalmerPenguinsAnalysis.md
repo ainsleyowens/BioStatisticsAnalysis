@@ -165,7 +165,9 @@ penguins %>%
 :::
 
 
-You can add options to executable code like this
+The table represents the penguin species, islands they inhabit, bill length, bill depth, flipper length, and body mass. This data will be used for further analysis.
+
+You can add options to executable code like this.
 
 
 ::: {.cell}
@@ -185,6 +187,8 @@ The data we are working with is a dataset on penguins, which includes 8 features
 
 ## Interesting Questions to Ask
 
+We ask these questions to differentiate among species, sex, and island. Analyzing these differences may suggest evolutionary or adaptive changes developed by the penguins.
+
 -   What is the average flipper length? What about for each species?
 
 -   Are there more male or female penguins? What about per island or species?
@@ -197,7 +201,7 @@ The data we are working with is a dataset on penguins, which includes 8 features
 
     ## Data Manipulation Tools and Strategies
 
-    We can look at individual columns in a data set or subsets of columns in a dataset. For example, if we are only interested in flipper length and species, we can `select()` those columns.
+    We can look at individual columns in a data set or subsets of columns in a dataset. For example, if we are only interested in flipper length and species, we can `select()` those columns. Here we look at body mass and species to determine if there is an association between species and size. By analyzing this data, we can determine if some species are smaller or larger than others in this dataset.
 
 
     ::: {.cell}
@@ -228,7 +232,7 @@ The data we are working with is a dataset on penguins, which includes 8 features
     :::
 
 
-If we want to `filter()` and only show certain rows, we can do that too.
+If we want to `filter()` and only show certain rows, we can do that too. Here, we use the `filter()` function to analyze bill length and bill depth by species and island. Analysis of this data may show differences between bill length and bill depth by species or geographical location, which may pose further research questions. What about the environment or evolution of the species causes these differences? However, in this dataset there are not the same amount of penguins per species, which causes difficulty making statements about the species in the dataset. Because we have a large amount of Adelie penguins, we may draw conclusions about that species in this dataset, but with a small amount of Chinstrap and Gentoo penguins, it is difficult to draw conclusions that may speak to the species as a whole.
 
 
 ::: {.cell}
@@ -295,7 +299,7 @@ penguins %>%
 
 Most of our questions involve summarizing data, and perhaps summarizing over groups. We can summarize data using the `summarize()` function and group data using `group_by()`.
 
-Let's find the average flipper length.
+Let's find the average flipper length. Table 1 shows the overall flipper length average, while Table 2 shows the average flipper length in the Gentoo species, and Table 3 represents average flipper length across the 3 species individually. This data shows that the Gentoo penguins had the largest average flipper length. These tables were created using the `summarize()` and `group_by()` functions.
 
 
 ::: {.cell}
@@ -351,7 +355,7 @@ penguins %>%
 :::
 
 
-How many of each species do we have?
+How many of each species do we have? This can be found using the `count()` function. This is important when analyzing and comparing quantitative data to ensure accuracy, especially when drawing conclusions in a dataset.
 
 
 ::: {.cell}
@@ -374,7 +378,7 @@ penguins %>%
 :::
 
 
-How many of each sex are there? What about by island or species?
+How many of each sex are there? What about by island or species? When measuring anatomic features of animals, sex is important, as in some species, certain traits are particular to one sex of the species.
 
 
 ::: {.cell}
@@ -417,7 +421,7 @@ penguins%>%
 :::
 
 
-We can use `mutate()` to add new columns to our data set.
+We can use `mutate()` to add new columns to our data set. Here we found the average bill length to depth ratio, first in the dataset as a whole, and then by species, using the `mutate()`, `summarize()`, and `group_by()` functions. The data suggests that the Gentoo penguins have the largest bill length to depth ratio, but it must again be remembered that there is a much larger sample of Gentoo penguins compared to the other species. Additionally, there is a large amount of male penguins in the species, which in many species are found to be the larger of the sex, and therefor develop larger features, potentially like bills. To gather a better understanding regarding differences among species, the dataset would require more even amounts of penguins per species.
 
 
 ::: {.cell}
@@ -465,7 +469,7 @@ penguins %>%
 :::
 
 
-Average body mass by year
+Here we find average body mass by year. In animal species, body mass can fluctuate by year. Fluctuations where average body mass by year drops drastically or declines slowly may be cause for concern, and can be caused by loss of environment, lack of food, disease, competition, etc. The steady decline in average body mass from 2007-2009 represented by the table may be worrisome for the penguin populations in this dataset.
 
 
 ::: {.cell}
@@ -529,7 +533,9 @@ Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 :::
 
 
-We will now look at the distribution of species.
+Above, we created a histogram to visualize the distribution of penguin flipper lengths. The black dashed line represents the dataset mean, and the blue solid line represents the dataset median. In this dataset, the average flipper length appears to range from about 205-215 mm, the lowest flipper length is around 170 mm, and the highest flipper length is 230 mm. This graph shows us how flipper length ranges across the dataset, but without species, island, or sex specification, it becomes difficult to differentiate the data for analysis.
+
+We will now look at the distribution of species, using a histogram. This graph shows us that there is a significantly larger amount of Gentoo penguins than Adelie and Chinstrap. These numbers may skew analysis when grouping and comparing by species.
 
 
 ::: {.cell}
@@ -547,7 +553,7 @@ penguins %>%
 :::
 
 
-Let's make a scatter plot to determine if bill length is correlated with bill depth.
+Let's make a scatter plot to determine if bill length is correlated with bill depth. The scatter plot shows that bill length is not necessarily correlated with bill depth, and different species show different associations between the two. The Adelie penguins showed significantly higher bill depth than the Gentoo species, but the Gentoo species showed significantly higher bill length than the Adelie penguins. The Chinstrap penguins show relatively high bill lengths and bill depths, but this is a difficult comparison to make because there are only 2 Chinstrap penguins, compared to the much larger populations of Gentoo and Adelie penguins in this dataset.
 
 
 ::: {.cell}
@@ -662,36 +668,5 @@ Caused by error in `predLoess()`:
 
 ::: {.cell-output-display}
 ![](PalmerPenguinsAnalysis_files/figure-html/unnamed-chunk-12-1.png){width=672}
-:::
-:::
-
-::: {.cell}
-
-```{.r .cell-code}
-n_samps <- 1000
-sample_means <- rep(NA, n_samps)
-for(i in 1:n_samps){
-  my_samp <- penguins %>%
-    sample_n(nrow(penguins), replace = TRUE)
-  sample_means[i] <- my_samp %>%
-    summarize(mean = mean(flipper_length_mm, na.rm = TRUE)) %>%
-    pull(mean)
-}
-
-ggplot() +
-  geom_histogram(aes(x = sample_means)) +
-  labs(title = "Distribution of Bootstrap Samples",
-       x = "Sample Mean Flipper Lengths (mm)",
-       y = "")
-```
-
-::: {.cell-output .cell-output-stderr}
-```
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-```
-:::
-
-::: {.cell-output-display}
-![](PalmerPenguinsAnalysis_files/figure-html/unnamed-chunk-13-1.png){width=672}
 :::
 :::

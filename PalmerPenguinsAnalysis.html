@@ -260,7 +260,8 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 
 </div>
 </div>
-<p>You can add options to executable code like this</p>
+<p>The table represents the penguin species, islands they inhabit, bill length, bill depth, flipper length, and body mass. This data will be used for further analysis.</p>
+<p>You can add options to executable code like this.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
@@ -274,6 +275,7 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 </section>
 <section id="interesting-questions-to-ask" class="level2">
 <h2 class="anchored" data-anchor-id="interesting-questions-to-ask">Interesting Questions to Ask</h2>
+<p>We ask these questions to differentiate among species, sex, and island. Analyzing these differences may suggest evolutionary or adaptive changes developed by the penguins.</p>
 <ul>
 <li><p>What is the average flipper length? What about for each species?</p></li>
 <li><p>Are there more male or female penguins? What about per island or species?</p></li>
@@ -281,7 +283,7 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 <li><p>What is the ratio of bill length to bill depth for a penguin? What is the overall average of this metric? Does it change by species, sex, or island?</p></li>
 <li><p>Does average body mass change by year?</p>
 <h2 id="data-manipulation-tools-and-strategies" class="anchored">Data Manipulation Tools and Strategies</h2>
-<p>We can look at individual columns in a data set or subsets of columns in a dataset. For example, if we are only interested in flipper length and species, we can <code>select()</code> those columns.</p>
+<p>We can look at individual columns in a data set or subsets of columns in a dataset. For example, if we are only interested in flipper length and species, we can <code>select()</code> those columns. Here we look at body mass and species to determine if there is an association between species and size. By analyzing this data, we can determine if some species are smaller or larger than others in this dataset.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(species, body_mass_g) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -303,7 +305,7 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 </div>
 </div></li>
 </ul>
-<p>If we want to <code>filter()</code> and only show certain rows, we can do that too.</p>
+<p>If we want to <code>filter()</code> and only show certain rows, we can do that too. Here, we use the <code>filter()</code> function to analyze bill length and bill depth by species and island. Analysis of this data may show differences between bill length and bill depth by species or geographical location, which may pose further research questions. What about the environment or evolution of the species causes these differences? However, in this dataset there are not the same amount of penguins per species, which causes difficulty making statements about the species in the dataset. Because we have a large amount of Adelie penguins, we may draw conclusions about that species in this dataset, but with a small amount of Chinstrap and Gentoo penguins, it is difficult to draw conclusions that may speak to the species as a whole.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#we can filter by species (categorical variables) </span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
@@ -348,7 +350,7 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 <section id="answering-our-questions" class="level2">
 <h2 class="anchored" data-anchor-id="answering-our-questions">Answering Our Questions</h2>
 <p>Most of our questions involve summarizing data, and perhaps summarizing over groups. We can summarize data using the <code>summarize()</code> function and group data using <code>group_by()</code>.</p>
-<p>Let’s find the average flipper length.</p>
+<p>Let’s find the average flipper length. Table 1 shows the overall flipper length average, while Table 2 shows the average flipper length in the Gentoo species, and Table 3 represents average flipper length across the 3 species individually. This data shows that the Gentoo penguins had the largest average flipper length. These tables were created using the <code>summarize()</code> and <code>group_by()</code> functions.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Overall average flipper length</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
@@ -382,7 +384,7 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 3 Gentoo                  218.</code></pre>
 </div>
 </div>
-<p>How many of each species do we have?</p>
+<p>How many of each species do we have? This can be found using the <code>count()</code> function. This is important when analyzing and comparing quantitative data to ensure accuracy, especially when drawing conclusions in a dataset.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -395,7 +397,7 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 3 Gentoo       33</code></pre>
 </div>
 </div>
-<p>How many of each sex are there? What about by island or species?</p>
+<p>How many of each sex are there? What about by island or species? When measuring anatomic features of animals, sex is important, as in some species, certain traits are particular to one sex of the species.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -422,7 +424,7 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 6 Gentoo    male      20</code></pre>
 </div>
 </div>
-<p>We can use <code>mutate()</code> to add new columns to our data set.</p>
+<p>We can use <code>mutate()</code> to add new columns to our data set. Here we found the average bill length to depth ratio, first in the dataset as a whole, and then by species, using the <code>mutate()</code>, <code>summarize()</code>, and <code>group_by()</code> functions. The data suggests that the Gentoo penguins have the largest bill length to depth ratio, but it must again be remembered that there is a much larger sample of Gentoo penguins compared to the other species. Additionally, there is a large amount of male penguins in the species, which in many species are found to be the larger of the sex, and therefor develop larger features, potentially like bills. To gather a better understanding regarding differences among species, the dataset would require more even amounts of penguins per species.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#To make a permanet change, we need to store the results of our manipulations</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>penguins_with_ratio <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
@@ -454,7 +456,7 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 3 Gentoo                   3.17                  3.13</code></pre>
 </div>
 </div>
-<p>Average body mass by year</p>
+<p>Here we find average body mass by year. In animal species, body mass can fluctuate by year. Fluctuations where average body mass by year drops drastically or declines slowly may be cause for concern, and can be caused by loss of environment, lack of food, disease, competition, etc. The steady decline in average body mass from 2007-2009 represented by the table may be worrisome for the penguin populations in this dataset.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span></span>
@@ -497,7 +499,8 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 <p><img src="PalmerPenguinsAnalysis_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>We will now look at the distribution of species.</p>
+<p>Above, we created a histogram to visualize the distribution of penguin flipper lengths. The black dashed line represents the dataset mean, and the blue solid line represents the dataset median. In this dataset, the average flipper length appears to range from about 205-215 mm, the lowest flipper length is around 170 mm, and the highest flipper length is 230 mm. This graph shows us how flipper length ranges across the dataset, but without species, island, or sex specification, it becomes difficult to differentiate the data for analysis.</p>
+<p>We will now look at the distribution of species, using a histogram. This graph shows us that there is a significantly larger amount of Gentoo penguins than Adelie and Chinstrap. These numbers may skew analysis when grouping and comparing by species.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
@@ -507,7 +510,7 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 <p><img src="PalmerPenguinsAnalysis_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Let’s make a scatter plot to determine if bill length is correlated with bill depth.</p>
+<p>Let’s make a scatter plot to determine if bill length is correlated with bill depth. The scatter plot shows that bill length is not necessarily correlated with bill depth, and different species show different associations between the two. The Adelie penguins showed significantly higher bill depth than the Gentoo species, but the Gentoo species showed significantly higher bill length than the Adelie penguins. The Chinstrap penguins show relatively high bill lengths and bill depths, but this is a difficult comparison to make because there are only 2 Chinstrap penguins, compared to the much larger populations of Gentoo and Adelie penguins in this dataset.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
@@ -574,29 +577,6 @@ Caused by error in `predLoess()`:
 </div>
 <div class="cell-output-display">
 <p><img src="PalmerPenguinsAnalysis_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>n_samps <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>sample_means <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, n_samps)</span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n_samps){</span>
-<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>  my_samp <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
-<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sample_n</span>(<span class="fu">nrow</span>(penguins), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>  sample_means[i] <span class="ot">&lt;-</span> my_samp <span class="sc">%&gt;%</span></span>
-<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(flipper_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(mean)</span>
-<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> sample_means)) <span class="sc">+</span></span>
-<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Bootstrap Samples"</span>,</span>
-<span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Sample Mean Flipper Lengths (mm)"</span>,</span>
-<span id="cb53-15"><a href="#cb53-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-</div>
-<div class="cell-output-display">
-<p><img src="PalmerPenguinsAnalysis_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
