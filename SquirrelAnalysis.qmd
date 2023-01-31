@@ -5,18 +5,100 @@ format: html
 editor: visual
 ---
 
+## Squirrels Analysis
+
+This is an analysis of the NYC Squirrel Census dataset.
+
+## Loading Packages and Datasets.
+
+Here we loaded the tidymodels package and squirrels data.
+
 ```{r}
 nyc_squirrels <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-10-29/nyc_squirrels.csv")
 
 #install.packages("tidymodels")
 library(tidymodels)
+#Load the tidyverse
+library(tidyverse)
+library (kableExtra)
 
 nyc_squirrels_splits <- initial_split(nyc_squirrels, prop = 0.5)
 
 exploratory_data <- training(my_data_splits)
 test_data <- testing(my_data_splits)
+exploratory_data %>% 
+  head(6)%>% 
+  kable() %>% 
+  kable_styling (c("striped", "hover"))
 ```
 
+This table represents the geographical, physical, and behavioral features of the squirrels in the dataset.
+
+## About Our Data
+
+## Interesting Questions to Ask
+
+-   What is the most common fur color?
+
+-   How many squirrels of each fur color are there?
+
+-   How many juveniles and adults are there?
+
+-   Are squirrels more likely to be above ground or on the ground plane?
+
+-   Are squirrels seen more at night or during the day?
+
+-   What is the most commonly seen behavior?
+
+-   Does most commonly seen behavior differ from juveniles and adults?
+
+## Hypotheses
+
+-   Most common fur color is gray.
+
+-   There will be more adults than juveniles.
+
+-   Squirrels are more likely to be above ground than on the ground plane.
+
+-   Squirrels are more likely to be seen at night.
+
+-   Most commonly seen behavior is running or eating.
+
+## Answering Our Questions
+
+What is the most common fur color? How many squirrels of each fur color are there?
+
 ```{r}
+exploratory_data %>%
+  select(primary_fur_color)
+exploratory_data %>%
+  count(primary_fur_color)
+```
+
+How many juveniles and adults are there?
+
+```{r}
+exploratory_data %>% 
+  count (age)
+```
+
+Are squirrels more likely to be above ground or on the ground plane?
+
+```{r}
+exploratory_data %>% 
+  count(location)
+```
+
+Are squirrels seen more at night or during the day?
+
+```{r}
+exploratory_data %>%
+  count (shift)
+```
+
+What is the most commonly seen behavior?
+
+```{r}
+exploratory_data %>% 
 
 ```
