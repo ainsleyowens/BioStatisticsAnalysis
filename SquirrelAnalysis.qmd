@@ -1,0 +1,22 @@
+---
+title: "NYCSquirrelAnalysis"
+author: "Ainsley Owens"
+format: html
+editor: visual
+---
+
+```{r}
+nyc_squirrels <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-10-29/nyc_squirrels.csv")
+
+#install.packages("tidymodels")
+library(tidymodels)
+
+nyc_squirrels_splits <- initial_split(nyc_squirrels, prop = 0.5)
+
+exploratory_data <- training(my_data_splits)
+test_data <- testing(my_data_splits)
+```
+
+```{r}
+
+```
