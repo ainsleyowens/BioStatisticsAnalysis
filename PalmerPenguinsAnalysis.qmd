@@ -162,7 +162,7 @@ penguins %>%
   summarize(mean_body_mass = mean(body_mass_g))
 ```
 
-## Data Visualization 
+## Data Visualization
 
 -   What is the distribution of penguin flipper lengths?
 

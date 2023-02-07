@@ -5,11 +5,15 @@ format: html
 editor: visual
 ---
 
-## Squirrels Analysis
+## Abstract
 
-This is an analysis of the NYC Squirrel Census dataset.
+This is an analysis of the NYC Squirrels Census dataset. This dataset includes information regarding squirrel fur color, behavior, and geographical location. This analysis will determine most common fur color, most common behavior, activity compared between day and night, as well as comparisons between juveniles and adults. Does most commonly seen behavior differ from juveniles and adults? Does commonly seen behavior differ at night/during the day?
 
-## Loading Packages and Datasets.
+## NYC Squirrels Analysis
+
+This dataset contains observations from the NYC Squirrel Census. 1,511 squirrels were observed. Juveniles and adults were observed. Fur color was observed, as well as behavior and geographical location. Behaviors observed include climbing, chasing, eating, foraging, interactions with humans, and communicative behaviors like kuks, quaas, moans, tail twitches, etc.
+
+## Loading Packages and Datasets
 
 Here we loaded the tidymodels package and squirrels data.
 
@@ -52,19 +56,21 @@ This table represents the geographical, physical, and behavioral features of the
 
 -   Does most commonly seen behavior differ from juveniles and adults?
 
+-   Does commonly seen behavior differ at night/during the day?
+
 ## Hypotheses
 
--   Most common fur color is gray.
+-   The most common fur color is gray.
 
--   There will be more adults than juveniles.
+-   There are more adult squirrels in the NYC squirrel population than juveniles.
 
--   Squirrels are more likely to be above ground than on the ground plane.
+-   Squirrels are more likely to be observed on the ground plane than above ground.
 
--   Squirrels are more likely to be seen at night.
+-   Squirrels are more commonly observed at night than during the day.
 
--   Most commonly seen behavior is running or eating.
+-   The most commonly observed behavior is foraging, and the least commonly observed behavior is moans.
 
-## Answering Our Questions
+## Exploratory Analysis
 
 What is the most common fur color? How many squirrels of each fur color are there?
 
@@ -75,12 +81,16 @@ exploratory_data %>%
   count(primary_fur_color)
 ```
 
+The most common fur color is gray, followed by cinnamon, with black being the least common fur color. This may be explained by natural selection, where gray squirrels are better adapted to blend in with the environment, whereas cinnamon and black furred squirrels may be more visible to predators.
+
 How many juveniles and adults are there?
 
 ```{r}
 exploratory_data %>% 
   count (age)
 ```
+
+There are more adult squirrels than juveniles. From the sample, there were 1,273 adults, compared to 160 juveniles. This may be because there is a higher percentage of adults in the sample, but may also be due to the fact that adults adventure into public sight more often than juveniles. This could potentially be explained by the fact that squirrels care for their offspring for up to 3 months, meaning the juveniles may not leave the nest often until they are older.
 
 Are squirrels more likely to be above ground or on the ground plane?
 
@@ -89,6 +99,8 @@ exploratory_data %>%
   count(location)
 ```
 
+Squirrels were seen more on the ground plane than above ground. There were 1,064 squirrels seen on the ground plane compared to only 425 above ground. Squirrels may spend more time on the ground plane rather than above ground, but this may also be explained by the fact that it is more difficult to find squirrels in trees.
+
 Are squirrels seen more at night or during the day?
 
 ```{r}
@@ -96,9 +108,28 @@ exploratory_data %>%
   count (shift)
 ```
 
+Squirrels were seen more at night than during the day, although the difference was not significant. There were 659 squirrels seen during the day, and 852 squirrels seen at night. This suggests that the squirrels in this sample may be more active at night.
+
 What is the most commonly seen behavior?
 
 ```{r}
-exploratory_data %>% 
+#install.packages("skimr")
+library(skimr)
+exploratory_data %>%
+  skim()
+```
+
+The most commonly seen behavior is foraging. The least commonly seen behavior is moans.
+
+```{r}
+exploratory_data %>%
+  count (foraging)
+exploratory_data %>%
+  count (moans)
+```
+
+```{r}
 
 ```
+
+717 squirrels from the sample were observed foraging. Foraging is necessary for survival, which explains why this is the most commonly observed behavior. Moans are a behavior used to communicate with other squirrels to identify the presence or lack of predators. These moans are very quiet, which may account for why only one squirrel was observed displaying this behavior. \
