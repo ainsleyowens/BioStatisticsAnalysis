@@ -69,7 +69,7 @@ exploratory_data %>%
   labs(title = "Counts of Primary Fur Color" , x = "Primary Fur Color", y = "Count")
 ```
 
-The most common fur color is gray, followed by cinnamon, with black being the least common fur color. This may be explained by natural selection, where gray squirrels are better adapted to blend in with the environment, whereas cinnamon and black furred squirrels may be more visible to predators.
+The most common fur color is gray, with 1,223 squirrels followed by cinnamon, 208 squirrels, with black, 49 squirrels, being the least common fur color. 31 squirrels were observed as N/A, not contributing to this data form. This may be explained by natural selection, where gray squirrels are better adapted to blend in with the environment, whereas cinnamon and black furred squirrels may be more visible to predators.
 
 #### How many juveniles and adults are there?
 
@@ -97,7 +97,7 @@ exploratory_data %>%
 
 ```
 
-Squirrels were seen more on the ground plane than above ground. There were 1,064 squirrels seen on the ground plane compared to only 425 above ground. Squirrels may spend more time on the ground plane rather than above ground, but this may also be explained by the fact that it is more difficult to find squirrels in trees.
+Squirrels were seen more on the ground plane than above ground in this dataset. There were 1,064 squirrels seen on the ground plane compared to only 425 above ground. Squirrels may spend more time on the ground plane rather than above ground, but this may also be explained by the fact that it is more difficult to find squirrels in trees. Because this analysis is run on data only provided by the NYC Central Park Squirrels Census dataset, this exploratory hypothesis cannot be generalized for the species as a whole, but just for this sample.
 
 #### Are squirrels seen more at night or during the day?
 
@@ -145,7 +145,7 @@ exploratory_data %>%
 
 ```
 
-Because the observation format of this dataset features "false/true" observations for behaviors, it can make analysis difficult. This data frame represents the numerical proportion of times each behavior is being observed ("true") so that we are able to determine differences between behavior in groups. The groups in this data form are adults and juveniles. This data form shows that there are differences between behavior based on age. Adults were observed more foraging and climbing than juveniles, while juveniles were observed more running and chasing than adults. This may be because adult squirrels are focused primarily on survival, while juveniles may be more likely to partake in "playful" behaviors with one another. It is also important to remember that there are more adults than juveniles in this dataset, so it may not be an accurate representation of behavior among different age groups.
+Because the observation format of this dataset features "false/true" observations for behaviors, it can make analysis difficult. This data frame represents the numerical proportion of times each behavior is being observed ("true") so that we are able to determine differences between behavior in groups. The groups in this data form are adults and juveniles. This data form shows that there are differences in behavior based on age. Adults were observed more foraging and climbing than juveniles, while juveniles were observed more running and chasing than adults. This may be because adult squirrels are focused primarily on survival, while juveniles may be more likely to partake in "playful" behaviors with one another. It is also important to remember that there are more adults than juveniles in this dataset, so it may not be an accurate representation of behavior among different age groups.
 
 ```{r}
 exploratory_data %>%
@@ -168,6 +168,8 @@ This graph shows the differences in frequency of behavior between adults and juv
 
 #### Does behavior differ dependent on time of day?
 
+This data frame will show how behavior differs dependent on time of day, AM or PM.
+
 ```{r}
 exploratory_data %>%
   filter(!is.na(shift)) %>%
@@ -176,6 +178,8 @@ exploratory_data %>%
   summarize (pct_moans = mean(moans), pct_foraging = mean(foraging), pct_foraging = mean(foraging), pct_running = mean(running), pct_chasing = mean(chasing), pct_climbing = mean(climbing), pct_eating = mean(eating), pct_kuks = mean(kuks), pct_tail_flags = mean(tail_flags), pct_quaas = mean(quaas), pct_tail_twitches = mean(tail_twitches), pct_approaches = mean(approaches), pct_indifferent = mean(indifferent), pct_runs_from = mean(runs_from))
 
 ```
+
+This data form shows that certain behaviors, like moans, chasing, climbing, kuks, tail twitches, and approaches are more commonly observed in the morning/daytime, while behaviors like running away, tail flags, quaas, eating, foraging, and running are more commonly observed in the evening/nighttime. Previous analysis shows that squirrels are more commonly observed at night, so it is interesting to compare what behaviors are more commonly observed at different times throughout the day. This dataset is representative only of observed behaviors in the NYC Central Park squirrel population, as the squirrels are observed in their natural habitat and not under 24/7 observation in a laboratory setting, so it is possible that this analysis does not accurately describe general squirrel behavior and patterns, although it does allow us to draw conclusions about the behaviors of this particular sample.
 
 ```{r}
 exploratory_data %>%
@@ -196,16 +200,8 @@ exploratory_data %>%
 
 ```
 
+This bar graph represents the difference in squirrels observed foraging and moaning, the most commonly observed and least commonly observed behaviors, in the morning and at night. Foraging was observed relatively equally between the AM and PM shift, although there is a slightly higher quantity of foraging observed at night than during the day. The squirrels in this dataset were more commonly observed at night than during the day, so this finding correlates with the other data. Moans were very infrequently observed in this sample, shown by the quantity of the false bar in the graph, so there is not much distinction to be made between morning and night.
+
 ## Conclusions
 
--   The most common fur color is gray.
-
--   There are more adult squirrels in the NYC squirrel population than juveniles.
-
--   Squirrels are more likely to be observed on the ground plane than above ground.
-
--   Squirrels are more commonly observed at night than during the day.
-
--   The most commonly observed behavior is foraging, and the least commonly observed behavior is moans.
-
-## 
+The exploratory analysis from this dataset allowed us to develop several tentative conclusions to further analyze using the test data. The most commonly observed fur color is grey, and there were more adult squirrels observed in this sample than juveniles. This dataset shows that squirrels in NYC Central Park were more likely to be observed on the ground plane than above ground, and also more likely to be observed at night than during the day. The most commonly observed behavior across the sample is foraging, while the least commonly observed behavior is moaning. Further analysis determined that there are behavioral differences between juveniles and adults, as well as differences observed in frequencies of specific behaviors at night compared to during the day. Certain behaviors, like moans, chasing, climbing, kuks, tail twitches, and approaches are more commonly observed in the morning/daytime, while behaviors like running away, tail flags, quaas, eating, foraging, and running are more commonly observed in the evening/nighttime. Adults were observed more foraging and climbing than juveniles, while juveniles were observed more running and chasing than adults. Because this exploratory analysis and conclusions are based off one singular sample (the NYC Squirrels Census), in one geographical area (Central Park, NYC) conclusions and generalizations cannot be made for squirrel species as a whole. However, the exploratory analysis did allow us to draw preliminary conclusions for the exploratory data as well as generalize hypotheses for the test data.
