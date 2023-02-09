@@ -7,7 +7,7 @@ editor: visual
 
 ## Abstract
 
-This is an analysis of the NYC Squirrels Census dataset. This dataset includes information regarding squirrel fur color, behavior, and geographical location. This analysis will determine most common fur color, most common behavior, activity compared between day and night, as well as comparisons between juveniles and adults. Does most commonly seen behavior differ from juveniles and adults? Does commonly seen behavior differ at night/during the day?
+This is an analysis of the NYC Squirrels Census dataset. This dataset includes information regarding squirrel fur color, behavior, and geographical location. This analysis will determine commonalities among squirrels like most common fur color, most common behavior, activity compared between day and night, as well as comparisons between juveniles and adults. Does most commonly seen behavior differ from juveniles and adults? Does commonly seen behavior differ at night/during the day? The intention behind this analysis is to develop a further understanding of the information in this dataset.
 
 ## Introduction
 
@@ -56,7 +56,7 @@ This table represents the geographical, physical, and behavioral features of the
 
 ## Exploratory Analysis
 
-What is the most common fur color? How many squirrels of each fur color are there?
+#### What is the most common fur color? How many squirrels of each fur color are there?
 
 ```{r}
 exploratory_data %>%
@@ -71,7 +71,7 @@ exploratory_data %>%
 
 The most common fur color is gray, followed by cinnamon, with black being the least common fur color. This may be explained by natural selection, where gray squirrels are better adapted to blend in with the environment, whereas cinnamon and black furred squirrels may be more visible to predators.
 
-How many juveniles and adults are there?
+#### How many juveniles and adults are there?
 
 ```{r}
 exploratory_data %>% 
@@ -84,7 +84,7 @@ exploratory_data %>%
 
 There are more adult squirrels than juveniles. From the sample, there were 1,273 adults, compared to 160 juveniles. This may be because there is a higher percentage of adults in the sample, but may also be due to the fact that adults adventure into public sight more often than juveniles. This could potentially be explained by the fact that squirrels care for their offspring for up to 3 months, meaning the juveniles may not leave the nest often until they are older.
 
-Are squirrels more likely to be above ground or on the ground plane?
+#### Are squirrels more likely to be above ground or on the ground plane?
 
 ```{r}
 exploratory_data %>% 
@@ -99,7 +99,7 @@ exploratory_data %>%
 
 Squirrels were seen more on the ground plane than above ground. There were 1,064 squirrels seen on the ground plane compared to only 425 above ground. Squirrels may spend more time on the ground plane rather than above ground, but this may also be explained by the fact that it is more difficult to find squirrels in trees.
 
-Are squirrels seen more at night or during the day?
+#### Are squirrels seen more at night or during the day?
 
 ```{r}
 exploratory_data %>%
@@ -112,7 +112,7 @@ exploratory_data %>%
 
 Squirrels were seen more at night than during the day, although the difference was not significant. There were 659 squirrels seen during the day, and 852 squirrels seen at night. This suggests that the squirrels in this sample may be more active at night.
 
-What is the most commonly seen behavior?
+#### What is the most commonly seen behavior?
 
 ```{r}
 #install.packages("skimr")
@@ -130,11 +130,71 @@ exploratory_data %>%
   count (moans)
 ```
 
+717 squirrels from the sample were observed foraging. Foraging is necessary for survival, which explains why this is the most commonly observed behavior. Moans are a behavior used to communicate with other squirrels to identify the presence or lack of predators. These moans are very quiet, which may account for why only one squirrel was observed displaying this behavior.
+
+#### Does behavior differ among juveniles and adults?
+
+This data frame will show how commonly different behaviors are observed between adults and juveniles.
+
 ```{r}
+exploratory_data %>%
+  filter(!is.na(age)) %>%
+  filter(age!="?") %>%
+  group_by(age) %>%
+  summarize (pct_moans = mean(moans), pct_foraging = mean(foraging), pct_foraging = mean(foraging), pct_running = mean(running), pct_chasing = mean(chasing), pct_climbing = mean(climbing), pct_eating = mean(eating), pct_kuks = mean(kuks), pct_tail_flags = mean(tail_flags), pct_quaas = mean(quaas), pct_tail_twitches = mean(tail_twitches), pct_approaches = mean(approaches), pct_indifferent = mean(indifferent), pct_runs_from = mean(runs_from))
 
 ```
 
-717 squirrels from the sample were observed foraging. Foraging is necessary for survival, which explains why this is the most commonly observed behavior. Moans are a behavior used to communicate with other squirrels to identify the presence or lack of predators. These moans are very quiet, which may account for why only one squirrel was observed displaying this behavior.
+Because the observation format of this dataset features "false/true" observations for behaviors, it can make analysis difficult. This data frame represents the numerical proportion of times each behavior is being observed ("true") so that we are able to determine differences between behavior in groups. The groups in this data form are adults and juveniles. This data form shows that there are differences between behavior based on age. Adults were observed more foraging and climbing than juveniles, while juveniles were observed more running and chasing than adults. This may be because adult squirrels are focused primarily on survival, while juveniles may be more likely to partake in "playful" behaviors with one another. It is also important to remember that there are more adults than juveniles in this dataset, so it may not be an accurate representation of behavior among different age groups.
+
+```{r}
+exploratory_data %>%
+  filter(!is.na(age)) %>%
+  filter(age!="?") %>%
+  ggplot() +
+  geom_bar(aes(x=age,
+               fill=foraging),
+           position="fill")
+exploratory_data %>%
+  filter(!is.na(age)) %>%
+  filter(age!="?") %>%
+  ggplot() +
+  geom_bar(aes(x=age,
+               fill=moans),
+           position="fill")
+```
+
+This graph shows the differences in frequency of behavior between adults and juveniles, using the most common and least common behaviors, foraging and moaning. This demonstrates that while there is virtually no difference between adults and juveniles observed moaning, adults were observed more than juveniles foraging.
+
+#### Does behavior differ dependent on time of day?
+
+```{r}
+exploratory_data %>%
+  filter(!is.na(shift)) %>%
+  filter(shift!="?") %>%
+  group_by(shift) %>%
+  summarize (pct_moans = mean(moans), pct_foraging = mean(foraging), pct_foraging = mean(foraging), pct_running = mean(running), pct_chasing = mean(chasing), pct_climbing = mean(climbing), pct_eating = mean(eating), pct_kuks = mean(kuks), pct_tail_flags = mean(tail_flags), pct_quaas = mean(quaas), pct_tail_twitches = mean(tail_twitches), pct_approaches = mean(approaches), pct_indifferent = mean(indifferent), pct_runs_from = mean(runs_from))
+
+```
+
+```{r}
+exploratory_data %>%
+  filter(!is.na(shift)) %>%
+  filter(shift!="?") %>%
+   ggplot() +
+  geom_bar(aes(x=shift,
+               fill=foraging),
+           position="fill")
+exploratory_data %>%
+  filter(!is.na(shift)) %>%
+  filter(shift!="?") %>%
+   ggplot() +
+  geom_bar(aes(x=shift,
+               fill=moans
+),
+           position="fill")
+
+```
 
 ## Conclusions
 

@@ -135,7 +135,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="abstract" class="level2">
 <h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>This is an analysis of the NYC Squirrels Census dataset. This dataset includes information regarding squirrel fur color, behavior, and geographical location. This analysis will determine most common fur color, most common behavior, activity compared between day and night, as well as comparisons between juveniles and adults. Does most commonly seen behavior differ from juveniles and adults? Does commonly seen behavior differ at night/during the day?</p>
+<p>This is an analysis of the NYC Squirrels Census dataset. This dataset includes information regarding squirrel fur color, behavior, and geographical location. This analysis will determine commonalities among squirrels like most common fur color, most common behavior, activity compared between day and night, as well as comparisons between juveniles and adults. Does most commonly seen behavior differ from juveniles and adults? Does commonly seen behavior differ at night/during the day? The intention behind this analysis is to develop a further understanding of the information in this dataset.</p>
 </section>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
@@ -184,7 +184,7 @@ lgl (13): running, chasing, climbing, eating, foraging, kuks, quaas, moans, ...
 ✖ dplyr::filter()  masks stats::filter()
 ✖ dplyr::lag()     masks stats::lag()
 ✖ recipes::step()  masks stats::step()
-• Use suppressPackageStartupMessages() to eliminate package startup messages</code></pre>
+• Search for functions across packages at https://www.tidymodels.org/find/</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Load the tidyverse</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -262,56 +262,56 @@ The following object is masked from 'package:dplyr':
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:right;"> -73.97088 </td>
-   <td style="text-align:right;"> 40.77247 </td>
-   <td style="text-align:left;"> 10F-PM-1019-12 </td>
-   <td style="text-align:left;"> 10F </td>
+   <td style="text-align:right;"> -73.97798 </td>
+   <td style="text-align:right;"> 40.76809 </td>
+   <td style="text-align:left;"> 2D-PM-1012-02 </td>
+   <td style="text-align:left;"> 02D </td>
    <td style="text-align:left;"> PM </td>
-   <td style="text-align:right;"> 10192018 </td>
-   <td style="text-align:right;"> 12 </td>
-   <td style="text-align:left;"> Adult </td>
-   <td style="text-align:left;"> Black </td>
-   <td style="text-align:left;"> White </td>
-   <td style="text-align:left;"> Black+White </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> Ground Plane </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> TRUE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> TRUE </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> TRUE </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> POINT (-73.9708775864433 40.772473633538) </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> 19 </td>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:right;"> 19 </td>
-   <td style="text-align:right;"> 13 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> -73.95448 </td>
-   <td style="text-align:right;"> 40.79066 </td>
-   <td style="text-align:left;"> 34I-AM-1012-02 </td>
-   <td style="text-align:left;"> 34I </td>
-   <td style="text-align:left;"> AM </td>
    <td style="text-align:right;"> 10122018 </td>
    <td style="text-align:right;"> 2 </td>
    <td style="text-align:left;"> Adult </td>
    <td style="text-align:left;"> Gray </td>
-   <td style="text-align:left;"> White </td>
-   <td style="text-align:left;"> Gray+White </td>
-   <td style="text-align:left;"> Short tail </td>
+   <td style="text-align:left;"> Cinnamon, White </td>
+   <td style="text-align:left;"> Gray+Cinnamon, White </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Ground Plane </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> POINT (-73.9779805668091 40.7680931566797) </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> -73.96457 </td>
+   <td style="text-align:right;"> 40.78112 </td>
+   <td style="text-align:left;"> 21F-PM-1018-01 </td>
+   <td style="text-align:left;"> 21F </td>
+   <td style="text-align:left;"> PM </td>
+   <td style="text-align:right;"> 10182018 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> Adult </td>
+   <td style="text-align:left;"> Cinnamon </td>
+   <td style="text-align:left;"> Gray </td>
+   <td style="text-align:left;"> Cinnamon+Gray </td>
+   <td style="text-align:left;"> NA </td>
    <td style="text-align:left;"> Ground Plane </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> NA </td>
@@ -319,8 +319,8 @@ The following object is masked from 'package:dplyr':
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> hiding </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> NA </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
@@ -330,7 +330,7 @@ The following object is masked from 'package:dplyr':
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> POINT (-73.9544808708211 40.7906575852286) </td>
+   <td style="text-align:left;"> POINT (-73.964572179093 40.7811208719018) </td>
    <td style="text-align:right;"> NA </td>
    <td style="text-align:right;"> 19 </td>
    <td style="text-align:right;"> 4 </td>
@@ -338,25 +338,63 @@ The following object is masked from 'package:dplyr':
    <td style="text-align:right;"> 13 </td>
   </tr>
   <tr>
-   <td style="text-align:right;"> -73.97155 </td>
-   <td style="text-align:right;"> 40.76956 </td>
-   <td style="text-align:left;"> 6H-PM-1020-03 </td>
-   <td style="text-align:left;"> 06H </td>
+   <td style="text-align:right;"> -73.96777 </td>
+   <td style="text-align:right;"> 40.78470 </td>
+   <td style="text-align:left;"> 23B-PM-1012-07 </td>
+   <td style="text-align:left;"> 23B </td>
    <td style="text-align:left;"> PM </td>
-   <td style="text-align:right;"> 10202018 </td>
+   <td style="text-align:right;"> 10122018 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> Adult </td>
+   <td style="text-align:left;"> Gray </td>
+   <td style="text-align:left;"> Cinnamon </td>
+   <td style="text-align:left;"> Gray+Cinnamon </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Ground Plane </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> POINT (-73.967767372181 40.784702631615) </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> -73.97945 </td>
+   <td style="text-align:right;"> 40.77064 </td>
+   <td style="text-align:left;"> 4A-AM-1007-03 </td>
+   <td style="text-align:left;"> 04A </td>
+   <td style="text-align:left;"> AM </td>
+   <td style="text-align:right;"> 10072018 </td>
    <td style="text-align:right;"> 3 </td>
    <td style="text-align:left;"> Adult </td>
    <td style="text-align:left;"> Gray </td>
    <td style="text-align:left;"> Cinnamon </td>
    <td style="text-align:left;"> Gray+Cinnamon </td>
-   <td style="text-align:left;"> Gray &amp; Cinnamon selected as Primary. Nothing selected as Highlights. Made executive adjustments. </td>
+   <td style="text-align:left;"> NA </td>
    <td style="text-align:left;"> Ground Plane </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> NA </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> NA </td>
    <td style="text-align:left;"> FALSE </td>
@@ -365,10 +403,10 @@ The following object is masked from 'package:dplyr':
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> TRUE </td>
-   <td style="text-align:left;"> runs from (kids kicking the fence) </td>
-   <td style="text-align:left;"> POINT (-73.9715466850324 40.7695584933538) </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> POINT (-73.9794481602391 40.770638572864) </td>
    <td style="text-align:right;"> NA </td>
    <td style="text-align:right;"> 19 </td>
    <td style="text-align:right;"> 4 </td>
@@ -376,37 +414,37 @@ The following object is masked from 'package:dplyr':
    <td style="text-align:right;"> 13 </td>
   </tr>
   <tr>
-   <td style="text-align:right;"> -73.96066 </td>
-   <td style="text-align:right;"> 40.79562 </td>
-   <td style="text-align:left;"> 36A-PM-1013-08 </td>
-   <td style="text-align:left;"> 36A </td>
-   <td style="text-align:left;"> PM </td>
-   <td style="text-align:right;"> 10132018 </td>
-   <td style="text-align:right;"> 8 </td>
-   <td style="text-align:left;"> NA </td>
+   <td style="text-align:right;"> -73.97428 </td>
+   <td style="text-align:right;"> 40.77547 </td>
+   <td style="text-align:left;"> 11B-AM-1007-02 </td>
+   <td style="text-align:left;"> 11B </td>
+   <td style="text-align:left;"> AM </td>
+   <td style="text-align:right;"> 10072018 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> Adult </td>
    <td style="text-align:left;"> Gray </td>
    <td style="text-align:left;"> NA </td>
    <td style="text-align:left;"> Gray+ </td>
    <td style="text-align:left;"> NA </td>
    <td style="text-align:left;"> Ground Plane </td>
    <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> "FIELD" </td>
-   <td style="text-align:left;"> TRUE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> running from #7 </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> POINT (-73.960657061561 40.7956150744102) </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> POINT (-73.974275954985 40.7754723879307) </td>
    <td style="text-align:right;"> NA </td>
    <td style="text-align:right;"> 19 </td>
    <td style="text-align:right;"> 4 </td>
@@ -414,62 +452,24 @@ The following object is masked from 'package:dplyr':
    <td style="text-align:right;"> 13 </td>
   </tr>
   <tr>
-   <td style="text-align:right;"> -73.97734 </td>
-   <td style="text-align:right;"> 40.77295 </td>
-   <td style="text-align:left;"> 7B-AM-1008-13 </td>
-   <td style="text-align:left;"> 07B </td>
-   <td style="text-align:left;"> AM </td>
-   <td style="text-align:right;"> 10082018 </td>
-   <td style="text-align:right;"> 13 </td>
-   <td style="text-align:left;"> Adult </td>
+   <td style="text-align:right;"> -73.95403 </td>
+   <td style="text-align:right;"> 40.79841 </td>
+   <td style="text-align:left;"> 42E-PM-1012-02 </td>
+   <td style="text-align:left;"> 42E </td>
+   <td style="text-align:left;"> PM </td>
+   <td style="text-align:right;"> 10122018 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> Juvenile </td>
    <td style="text-align:left;"> Gray </td>
    <td style="text-align:left;"> Cinnamon </td>
    <td style="text-align:left;"> Gray+Cinnamon </td>
    <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> Ground Plane </td>
-   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
    <td style="text-align:left;"> NA </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> TRUE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> POINT (-73.9773361580792 40.7729478226715) </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> 19 </td>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:right;"> 19 </td>
-   <td style="text-align:right;"> 13 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> -73.98095 </td>
-   <td style="text-align:right;"> 40.76857 </td>
-   <td style="text-align:left;"> 2A-PM-1019-04 </td>
-   <td style="text-align:left;"> 02A </td>
-   <td style="text-align:left;"> PM </td>
-   <td style="text-align:right;"> 10192018 </td>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:left;"> Juvenile </td>
-   <td style="text-align:left;"> Gray </td>
-   <td style="text-align:left;"> White </td>
-   <td style="text-align:left;"> Gray+White </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> Above Ground </td>
-   <td style="text-align:left;"> 15 </td>
-   <td style="text-align:left;"> in tree! </td>
-   <td style="text-align:left;"> TRUE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> NA </td>
@@ -480,9 +480,9 @@ The following object is masked from 'package:dplyr':
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> TRUE </td>
-   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> POINT (-73.980948293606 40.7685688850628) </td>
+   <td style="text-align:left;"> POINT (-73.9540257319561 40.798408619116) </td>
    <td style="text-align:right;"> NA </td>
    <td style="text-align:right;"> 19 </td>
    <td style="text-align:right;"> 4 </td>
@@ -498,7 +498,8 @@ The following object is masked from 'package:dplyr':
 </section>
 <section id="exploratory-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="exploratory-analysis">Exploratory Analysis</h2>
-<p>What is the most common fur color? How many squirrels of each fur color are there?</p>
+<section id="what-is-the-most-common-fur-color-how-many-squirrels-of-each-fur-color-are-there" class="level4">
+<h4 class="anchored" data-anchor-id="what-is-the-most-common-fur-color-how-many-squirrels-of-each-fur-color-are-there">What is the most common fur color? How many squirrels of each fur color are there?</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>exploratory_data <span class="sc">%&gt;%</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(primary_fur_color)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -506,14 +507,14 @@ The following object is masked from 'package:dplyr':
 <pre><code># A tibble: 1,511 × 1
    primary_fur_color
    &lt;chr&gt;            
- 1 Black            
- 2 Gray             
+ 1 Gray             
+ 2 Cinnamon         
  3 Gray             
  4 Gray             
  5 Gray             
  6 Gray             
- 7 &lt;NA&gt;             
- 8 Gray             
+ 7 Gray             
+ 8 Cinnamon         
  9 Gray             
 10 Gray             
 # … with 1,501 more rows</code></pre>
@@ -525,9 +526,9 @@ The following object is masked from 'package:dplyr':
   primary_fur_color     n
   &lt;chr&gt;             &lt;int&gt;
 1 Black                49
-2 Cinnamon            211
-3 Gray               1224
-4 &lt;NA&gt;                 27</code></pre>
+2 Cinnamon            193
+3 Gray               1248
+4 &lt;NA&gt;                 21</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>exploratory_data <span class="sc">%&gt;%</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
@@ -538,18 +539,19 @@ The following object is masked from 'package:dplyr':
 </div>
 </div>
 <p>The most common fur color is gray, followed by cinnamon, with black being the least common fur color. This may be explained by natural selection, where gray squirrels are better adapted to blend in with the environment, whereas cinnamon and black furred squirrels may be more visible to predators.</p>
-<p>How many juveniles and adults are there?</p>
+</section>
+<section id="how-many-juveniles-and-adults-are-there" class="level4">
+<h4 class="anchored" data-anchor-id="how-many-juveniles-and-adults-are-there">How many juveniles and adults are there?</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>exploratory_data <span class="sc">%&gt;%</span> </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span> (age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 2
+<pre><code># A tibble: 3 × 2
   age          n
   &lt;chr&gt;    &lt;int&gt;
-1 ?            2
-2 Adult     1262
-3 Juvenile   184
-4 &lt;NA&gt;        63</code></pre>
+1 Adult     1279
+2 Juvenile   159
+3 &lt;NA&gt;        73</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>exploratory_data <span class="sc">%&gt;%</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
@@ -560,7 +562,9 @@ The following object is masked from 'package:dplyr':
 </div>
 </div>
 <p>There are more adult squirrels than juveniles. From the sample, there were 1,273 adults, compared to 160 juveniles. This may be because there is a higher percentage of adults in the sample, but may also be due to the fact that adults adventure into public sight more often than juveniles. This could potentially be explained by the fact that squirrels care for their offspring for up to 3 months, meaning the juveniles may not leave the nest often until they are older.</p>
-<p>Are squirrels more likely to be above ground or on the ground plane?</p>
+</section>
+<section id="are-squirrels-more-likely-to-be-above-ground-or-on-the-ground-plane" class="level4">
+<h4 class="anchored" data-anchor-id="are-squirrels-more-likely-to-be-above-ground-or-on-the-ground-plane">Are squirrels more likely to be above ground or on the ground plane?</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>exploratory_data <span class="sc">%&gt;%</span> </span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  count</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -579,7 +583,9 @@ The following object is masked from 'package:dplyr':
 </div>
 </div>
 <p>Squirrels were seen more on the ground plane than above ground. There were 1,064 squirrels seen on the ground plane compared to only 425 above ground. Squirrels may spend more time on the ground plane rather than above ground, but this may also be explained by the fact that it is more difficult to find squirrels in trees.</p>
-<p>Are squirrels seen more at night or during the day?</p>
+</section>
+<section id="are-squirrels-seen-more-at-night-or-during-the-day" class="level4">
+<h4 class="anchored" data-anchor-id="are-squirrels-seen-more-at-night-or-during-the-day">Are squirrels seen more at night or during the day?</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>exploratory_data <span class="sc">%&gt;%</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span> (shift)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -587,8 +593,8 @@ The following object is masked from 'package:dplyr':
 <pre><code># A tibble: 2 × 2
   shift     n
   &lt;chr&gt; &lt;int&gt;
-1 AM      666
-2 PM      845</code></pre>
+1 AM      675
+2 PM      836</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>exploratory_data <span class="sc">%&gt;%</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
@@ -599,7 +605,9 @@ The following object is masked from 'package:dplyr':
 </div>
 </div>
 <p>Squirrels were seen more at night than during the day, although the difference was not significant. There were 659 squirrels seen during the day, and 852 squirrels seen at night. This suggests that the squirrels in this sample may be more active at night.</p>
-<p>What is the most commonly seen behavior?</p>
+</section>
+<section id="what-is-the-most-commonly-seen-behavior" class="level4">
+<h4 class="anchored" data-anchor-id="what-is-the-most-commonly-seen-behavior">What is the most commonly seen behavior?</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("skimr")</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
@@ -744,7 +752,7 @@ unique_squirrel_id
 0
 </td>
 <td style="text-align:right;">
-1511
+1509
 </td>
 <td style="text-align:right;">
 0
@@ -770,7 +778,7 @@ hectare
 0
 </td>
 <td style="text-align:right;">
-317
+328
 </td>
 <td style="text-align:right;">
 0
@@ -807,13 +815,13 @@ shift
 age
 </td>
 <td style="text-align:right;">
-63
+73
 </td>
 <td style="text-align:right;">
-0.96
+0.95
 </td>
 <td style="text-align:right;">
-1
+5
 </td>
 <td style="text-align:right;">
 8
@@ -822,7 +830,7 @@ age
 0
 </td>
 <td style="text-align:right;">
-3
+2
 </td>
 <td style="text-align:right;">
 0
@@ -833,10 +841,10 @@ age
 primary_fur_color
 </td>
 <td style="text-align:right;">
-27
+21
 </td>
 <td style="text-align:right;">
-0.98
+0.99
 </td>
 <td style="text-align:right;">
 4
@@ -859,7 +867,7 @@ primary_fur_color
 highlight_fur_color
 </td>
 <td style="text-align:right;">
-537
+538
 </td>
 <td style="text-align:right;">
 0.64
@@ -900,7 +908,7 @@ combination_of_primary_and_highlight_color
 0
 </td>
 <td style="text-align:right;">
-21
+20
 </td>
 <td style="text-align:right;">
 0
@@ -911,7 +919,7 @@ combination_of_primary_and_highlight_color
 color_notes
 </td>
 <td style="text-align:right;">
-1422
+1423
 </td>
 <td style="text-align:right;">
 0.06
@@ -937,7 +945,7 @@ color_notes
 location
 </td>
 <td style="text-align:right;">
-31
+34
 </td>
 <td style="text-align:right;">
 0.98
@@ -963,7 +971,7 @@ location
 above_ground_sighter_measurement
 </td>
 <td style="text-align:right;">
-58
+57
 </td>
 <td style="text-align:right;">
 0.96
@@ -978,7 +986,7 @@ above_ground_sighter_measurement
 0
 </td>
 <td style="text-align:right;">
-35
+33
 </td>
 <td style="text-align:right;">
 0
@@ -989,7 +997,7 @@ above_ground_sighter_measurement
 specific_location
 </td>
 <td style="text-align:right;">
-1263
+1270
 </td>
 <td style="text-align:right;">
 0.16
@@ -998,13 +1006,13 @@ specific_location
 4
 </td>
 <td style="text-align:right;">
-102
+68
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
-183
+176
 </td>
 <td style="text-align:right;">
 0
@@ -1015,22 +1023,22 @@ specific_location
 other_activities
 </td>
 <td style="text-align:right;">
-1307
+1282
 </td>
 <td style="text-align:right;">
-0.14
+0.15
 </td>
 <td style="text-align:right;">
-6
+4
 </td>
 <td style="text-align:right;">
-132
+78
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
-166
+176
 </td>
 <td style="text-align:right;">
 0
@@ -1041,7 +1049,7 @@ other_activities
 other_interactions
 </td>
 <td style="text-align:right;">
-1392
+1386
 </td>
 <td style="text-align:right;">
 0.08
@@ -1050,13 +1058,13 @@ other_interactions
 2
 </td>
 <td style="text-align:right;">
-92
+106
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
-104
+109
 </td>
 <td style="text-align:right;">
 0
@@ -1125,10 +1133,10 @@ running
 1
 </td>
 <td style="text-align:right;">
-0.24
+0.23
 </td>
 <td style="text-align:left;">
-FAL: 1147, TRU: 364
+FAL: 1160, TRU: 351
 </td>
 </tr>
 <tr>
@@ -1145,7 +1153,7 @@ chasing
 0.09
 </td>
 <td style="text-align:left;">
-FAL: 1371, TRU: 140
+FAL: 1380, TRU: 131
 </td>
 </tr>
 <tr>
@@ -1162,7 +1170,7 @@ climbing
 0.22
 </td>
 <td style="text-align:left;">
-FAL: 1179, TRU: 332
+FAL: 1176, TRU: 335
 </td>
 </tr>
 <tr>
@@ -1176,10 +1184,10 @@ eating
 1
 </td>
 <td style="text-align:right;">
-0.24
+0.26
 </td>
 <td style="text-align:left;">
-FAL: 1143, TRU: 368
+FAL: 1125, TRU: 386
 </td>
 </tr>
 <tr>
@@ -1193,10 +1201,10 @@ foraging
 1
 </td>
 <td style="text-align:right;">
-0.47
+0.49
 </td>
 <td style="text-align:left;">
-FAL: 794, TRU: 717
+FAL: 776, TRU: 735
 </td>
 </tr>
 <tr>
@@ -1213,7 +1221,7 @@ kuks
 0.04
 </td>
 <td style="text-align:left;">
-FAL: 1456, TRU: 55
+FAL: 1458, TRU: 53
 </td>
 </tr>
 <tr>
@@ -1230,7 +1238,7 @@ quaas
 0.02
 </td>
 <td style="text-align:left;">
-FAL: 1483, TRU: 28
+FAL: 1484, TRU: 27
 </td>
 </tr>
 <tr>
@@ -1264,7 +1272,7 @@ tail_flags
 0.05
 </td>
 <td style="text-align:left;">
-FAL: 1432, TRU: 79
+FAL: 1436, TRU: 75
 </td>
 </tr>
 <tr>
@@ -1281,7 +1289,7 @@ tail_twitches
 0.15
 </td>
 <td style="text-align:left;">
-FAL: 1287, TRU: 224
+FAL: 1281, TRU: 230
 </td>
 </tr>
 <tr>
@@ -1295,10 +1303,10 @@ approaches
 1
 </td>
 <td style="text-align:right;">
-0.06
+0.07
 </td>
 <td style="text-align:left;">
-FAL: 1419, TRU: 92
+FAL: 1410, TRU: 101
 </td>
 </tr>
 <tr>
@@ -1312,10 +1320,10 @@ indifferent
 1
 </td>
 <td style="text-align:right;">
-0.48
+0.50
 </td>
 <td style="text-align:left;">
-FAL: 793, TRU: 718
+TRU: 756, FAL: 755
 </td>
 </tr>
 <tr>
@@ -1329,10 +1337,10 @@ runs_from
 1
 </td>
 <td style="text-align:right;">
-0.24
+0.22
 </td>
 <td style="text-align:left;">
-FAL: 1153, TRU: 358
+FAL: 1185, TRU: 326
 </td>
 </tr>
 </tbody>
@@ -1411,7 +1419,7 @@ long
 -73.95
 </td>
 <td style="text-align:left;">
-▆▇▅▆▃
+▅▇▆▆▂
 </td>
 </tr>
 <tr>
@@ -1460,10 +1468,10 @@ date
 1
 </td>
 <td style="text-align:right;">
-10119615.62
+10119655.33
 </td>
 <td style="text-align:right;">
-42836.35
+42320.64
 </td>
 <td style="text-align:right;">
 10062018.00
@@ -1481,7 +1489,7 @@ date
 10202018.00
 </td>
 <td style="text-align:left;">
-▇▂▇▂▃
+▇▃▇▂▃
 </td>
 </tr>
 <tr>
@@ -1495,10 +1503,10 @@ hectare_squirrel_number
 1
 </td>
 <td style="text-align:right;">
-4.16
+4.10
 </td>
 <td style="text-align:right;">
-3.10
+3.03
 </td>
 <td style="text-align:right;">
 1.00
@@ -1513,7 +1521,7 @@ hectare_squirrel_number
 6.00
 </td>
 <td style="text-align:right;">
-23.00
+21.00
 </td>
 <td style="text-align:left;">
 ▇▂▁▁▁
@@ -1530,28 +1538,28 @@ zip_codes
 0
 </td>
 <td style="text-align:right;">
-11255.75
+11839.75
 </td>
 <td style="text-align:right;">
-1346.09
-</td>
-<td style="text-align:right;">
-10090.00
+1166.50
 </td>
 <td style="text-align:right;">
 10090.00
 </td>
 <td style="text-align:right;">
-11255.00
+11839.75
 </td>
 <td style="text-align:right;">
-12420.75
+12423.00
+</td>
+<td style="text-align:right;">
+12423.00
 </td>
 <td style="text-align:right;">
 12423.00
 </td>
 <td style="text-align:left;">
-▇▁▁▁▇
+▂▁▁▁▇
 </td>
 </tr>
 <tr>
@@ -1565,10 +1573,10 @@ community_districts
 1
 </td>
 <td style="text-align:right;">
-19.01
+19.00
 </td>
 <td style="text-align:right;">
-0.15
+0.12
 </td>
 <td style="text-align:right;">
 18.00
@@ -1635,10 +1643,10 @@ city_council_districts
 1
 </td>
 <td style="text-align:right;">
-19.05
+19.07
 </td>
 <td style="text-align:right;">
-1.24
+1.20
 </td>
 <td style="text-align:right;">
 19.00
@@ -1670,10 +1678,10 @@ police_precincts
 1
 </td>
 <td style="text-align:right;">
-13.00
+13.01
 </td>
 <td style="text-align:right;">
-0.15
+0.26
 </td>
 <td style="text-align:right;">
 11.00
@@ -1707,8 +1715,8 @@ police_precincts
 <pre><code># A tibble: 2 × 2
   foraging     n
   &lt;lgl&gt;    &lt;int&gt;
-1 FALSE      794
-2 TRUE       717</code></pre>
+1 FALSE      776
+2 TRUE       735</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>exploratory_data <span class="sc">%&gt;%</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span> (moans)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1720,10 +1728,98 @@ police_precincts
 2 TRUE      1</code></pre>
 </div>
 </div>
-<div class="cell">
-
-</div>
 <p>717 squirrels from the sample were observed foraging. Foraging is necessary for survival, which explains why this is the most commonly observed behavior. Moans are a behavior used to communicate with other squirrels to identify the presence or lack of predators. These moans are very quiet, which may account for why only one squirrel was observed displaying this behavior.</p>
+</section>
+<section id="does-behavior-differ-among-juveniles-and-adults" class="level4">
+<h4 class="anchored" data-anchor-id="does-behavior-differ-among-juveniles-and-adults">Does behavior differ among juveniles and adults?</h4>
+<p>This data frame will show how commonly different behaviors are observed between adults and juveniles.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>exploratory_data <span class="sc">%&gt;%</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(age)) <span class="sc">%&gt;%</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age<span class="sc">!=</span><span class="st">"?"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(age) <span class="sc">%&gt;%</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span> (<span class="at">pct_moans =</span> <span class="fu">mean</span>(moans), <span class="at">pct_foraging =</span> <span class="fu">mean</span>(foraging), <span class="at">pct_foraging =</span> <span class="fu">mean</span>(foraging), <span class="at">pct_running =</span> <span class="fu">mean</span>(running), <span class="at">pct_chasing =</span> <span class="fu">mean</span>(chasing), <span class="at">pct_climbing =</span> <span class="fu">mean</span>(climbing), <span class="at">pct_eating =</span> <span class="fu">mean</span>(eating), <span class="at">pct_kuks =</span> <span class="fu">mean</span>(kuks), <span class="at">pct_tail_flags =</span> <span class="fu">mean</span>(tail_flags), <span class="at">pct_quaas =</span> <span class="fu">mean</span>(quaas), <span class="at">pct_tail_twitches =</span> <span class="fu">mean</span>(tail_twitches), <span class="at">pct_approaches =</span> <span class="fu">mean</span>(approaches), <span class="at">pct_indifferent =</span> <span class="fu">mean</span>(indifferent), <span class="at">pct_runs_from =</span> <span class="fu">mean</span>(runs_from))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 14
+  age    pct_m…¹ pct_f…² pct_r…³ pct_c…⁴ pct_c…⁵ pct_e…⁶ pct_k…⁷ pct_t…⁸ pct_q…⁹
+  &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+1 Adult  7.82e-4   0.509   0.231  0.0837   0.224   0.249  0.0328  0.0477  0.0172
+2 Juven… 0         0.327   0.245  0.113    0.252   0.283  0.0377  0.0629  0.0189
+# … with 4 more variables: pct_tail_twitches &lt;dbl&gt;, pct_approaches &lt;dbl&gt;,
+#   pct_indifferent &lt;dbl&gt;, pct_runs_from &lt;dbl&gt;, and abbreviated variable names
+#   ¹​pct_moans, ²​pct_foraging, ³​pct_running, ⁴​pct_chasing, ⁵​pct_climbing,
+#   ⁶​pct_eating, ⁷​pct_kuks, ⁸​pct_tail_flags, ⁹​pct_quaas</code></pre>
+</div>
+</div>
+<p>Because the observation format of this dataset features “false/true” observations for behaviors, it can make analysis difficult. This data frame represents the numerical proportion of times each behavior is being observed (“true”) so that we are able to determine differences between behavior in groups. The groups in this data form are adults and juveniles. This data form shows that there are differences between behavior based on age. Adults were observed more foraging and climbing than juveniles, while juveniles were observed more running and chasing than adults. This may be because adult squirrels are focused primarily on survival, while juveniles may be more likely to partake in “playful” behaviors with one another. It is also important to remember that there are more adults than juveniles in this dataset, so it may not be an accurate representation of behavior among different age groups.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>exploratory_data <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(age)) <span class="sc">%&gt;%</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age<span class="sc">!=</span><span class="st">"?"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x=</span>age,</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill=</span>foraging),</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">position=</span><span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="SquirrelAnalysis_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>exploratory_data <span class="sc">%&gt;%</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(age)) <span class="sc">%&gt;%</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age<span class="sc">!=</span><span class="st">"?"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x=</span>age,</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill=</span>moans),</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">position=</span><span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="SquirrelAnalysis_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>This graph shows the differences in frequency of behavior between adults and juveniles, using the most common and least common behaviors, foraging and moaning. This demonstrates that while there is virtually no difference between adults and juveniles observed moaning, adults were observed more than juveniles foraging.</p>
+</section>
+<section id="does-behavior-differ-dependent-on-time-of-day" class="level4">
+<h4 class="anchored" data-anchor-id="does-behavior-differ-dependent-on-time-of-day">Does behavior differ dependent on time of day?</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>exploratory_data <span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(shift)) <span class="sc">%&gt;%</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(shift<span class="sc">!=</span><span class="st">"?"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(shift) <span class="sc">%&gt;%</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span> (<span class="at">pct_moans =</span> <span class="fu">mean</span>(moans), <span class="at">pct_foraging =</span> <span class="fu">mean</span>(foraging), <span class="at">pct_foraging =</span> <span class="fu">mean</span>(foraging), <span class="at">pct_running =</span> <span class="fu">mean</span>(running), <span class="at">pct_chasing =</span> <span class="fu">mean</span>(chasing), <span class="at">pct_climbing =</span> <span class="fu">mean</span>(climbing), <span class="at">pct_eating =</span> <span class="fu">mean</span>(eating), <span class="at">pct_kuks =</span> <span class="fu">mean</span>(kuks), <span class="at">pct_tail_flags =</span> <span class="fu">mean</span>(tail_flags), <span class="at">pct_quaas =</span> <span class="fu">mean</span>(quaas), <span class="at">pct_tail_twitches =</span> <span class="fu">mean</span>(tail_twitches), <span class="at">pct_approaches =</span> <span class="fu">mean</span>(approaches), <span class="at">pct_indifferent =</span> <span class="fu">mean</span>(indifferent), <span class="at">pct_runs_from =</span> <span class="fu">mean</span>(runs_from))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 14
+  shift pct_mo…¹ pct_f…² pct_r…³ pct_c…⁴ pct_c…⁵ pct_e…⁶ pct_k…⁷ pct_t…⁸ pct_q…⁹
+  &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+1 AM     0         0.465   0.222  0.0904   0.276   0.213  0.0356  0.0533  0.0133
+2 PM     0.00120   0.504   0.240  0.0837   0.178   0.289  0.0347  0.0467  0.0215
+# … with 4 more variables: pct_tail_twitches &lt;dbl&gt;, pct_approaches &lt;dbl&gt;,
+#   pct_indifferent &lt;dbl&gt;, pct_runs_from &lt;dbl&gt;, and abbreviated variable names
+#   ¹​pct_moans, ²​pct_foraging, ³​pct_running, ⁴​pct_chasing, ⁵​pct_climbing,
+#   ⁶​pct_eating, ⁷​pct_kuks, ⁸​pct_tail_flags, ⁹​pct_quaas</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>exploratory_data <span class="sc">%&gt;%</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(shift)) <span class="sc">%&gt;%</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(shift<span class="sc">!=</span><span class="st">"?"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x=</span>shift,</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill=</span>foraging),</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">position=</span><span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="SquirrelAnalysis_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>exploratory_data <span class="sc">%&gt;%</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(shift)) <span class="sc">%&gt;%</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(shift<span class="sc">!=</span><span class="st">"?"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x=</span>shift,</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill=</span>moans</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>),</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">position=</span><span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="SquirrelAnalysis_files/figure-html/unnamed-chunk-11-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
 </section>
 <section id="conclusions" class="level2">
 <h2 class="anchored" data-anchor-id="conclusions">Conclusions</h2>
