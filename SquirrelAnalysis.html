@@ -184,7 +184,7 @@ lgl (13): running, chasing, climbing, eating, foraging, kuks, quaas, moans, ...
 ✖ dplyr::filter()  masks stats::filter()
 ✖ dplyr::lag()     masks stats::lag()
 ✖ recipes::step()  masks stats::step()
-• Search for functions across packages at https://www.tidymodels.org/find/</code></pre>
+• Use suppressPackageStartupMessages() to eliminate package startup messages</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Load the tidyverse</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -262,18 +262,56 @@ The following object is masked from 'package:dplyr':
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:right;"> -73.97296 </td>
-   <td style="text-align:right;"> 40.76602 </td>
-   <td style="text-align:left;"> 3H-AM-1008-06 </td>
-   <td style="text-align:left;"> 03H </td>
-   <td style="text-align:left;"> AM </td>
-   <td style="text-align:right;"> 10082018 </td>
-   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> -73.97088 </td>
+   <td style="text-align:right;"> 40.77247 </td>
+   <td style="text-align:left;"> 10F-PM-1019-12 </td>
+   <td style="text-align:left;"> 10F </td>
+   <td style="text-align:left;"> PM </td>
+   <td style="text-align:right;"> 10192018 </td>
+   <td style="text-align:right;"> 12 </td>
    <td style="text-align:left;"> Adult </td>
    <td style="text-align:left;"> Black </td>
+   <td style="text-align:left;"> White </td>
+   <td style="text-align:left;"> Black+White </td>
    <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> Black+ </td>
-   <td style="text-align:left;"> beauty! </td>
+   <td style="text-align:left;"> Ground Plane </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> POINT (-73.9708775864433 40.772473633538) </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> -73.95448 </td>
+   <td style="text-align:right;"> 40.79066 </td>
+   <td style="text-align:left;"> 34I-AM-1012-02 </td>
+   <td style="text-align:left;"> 34I </td>
+   <td style="text-align:left;"> AM </td>
+   <td style="text-align:right;"> 10122018 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> Adult </td>
+   <td style="text-align:left;"> Gray </td>
+   <td style="text-align:left;"> White </td>
+   <td style="text-align:left;"> Gray+White </td>
+   <td style="text-align:left;"> Short tail </td>
    <td style="text-align:left;"> Ground Plane </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> NA </td>
@@ -281,18 +319,18 @@ The following object is masked from 'package:dplyr':
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> hiding </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> TRUE </td>
-   <td style="text-align:left;"> TRUE </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> POINT (-73.9729603550254 40.7660215710657) </td>
+   <td style="text-align:left;"> POINT (-73.9544808708211 40.7906575852286) </td>
    <td style="text-align:right;"> NA </td>
    <td style="text-align:right;"> 19 </td>
    <td style="text-align:right;"> 4 </td>
@@ -300,27 +338,28 @@ The following object is masked from 'package:dplyr':
    <td style="text-align:right;"> 13 </td>
   </tr>
   <tr>
-   <td style="text-align:right;"> -73.95787 </td>
-   <td style="text-align:right;"> 40.79337 </td>
-   <td style="text-align:left;"> 35E-AM-1020-04 </td>
-   <td style="text-align:left;"> 35E </td>
-   <td style="text-align:left;"> AM </td>
+   <td style="text-align:right;"> -73.97155 </td>
+   <td style="text-align:right;"> 40.76956 </td>
+   <td style="text-align:left;"> 6H-PM-1020-03 </td>
+   <td style="text-align:left;"> 06H </td>
+   <td style="text-align:left;"> PM </td>
    <td style="text-align:right;"> 10202018 </td>
-   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
    <td style="text-align:left;"> Adult </td>
    <td style="text-align:left;"> Gray </td>
    <td style="text-align:left;"> Cinnamon </td>
    <td style="text-align:left;"> Gray+Cinnamon </td>
+   <td style="text-align:left;"> Gray &amp; Cinnamon selected as Primary. Nothing selected as Highlights. Made executive adjustments. </td>
+   <td style="text-align:left;"> Ground Plane </td>
+   <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> Above Ground </td>
-   <td style="text-align:left;"> 30 </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> NA </td>
    <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> hunkered down,tail over body; sitting perfectly still </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
@@ -328,9 +367,8 @@ The following object is masked from 'package:dplyr':
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> TRUE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> POINT (-73.9578658632957 40.7933712188923) </td>
+   <td style="text-align:left;"> runs from (kids kicking the fence) </td>
+   <td style="text-align:left;"> POINT (-73.9715466850324 40.7695584933538) </td>
    <td style="text-align:right;"> NA </td>
    <td style="text-align:right;"> 19 </td>
    <td style="text-align:right;"> 4 </td>
@@ -338,37 +376,37 @@ The following object is masked from 'package:dplyr':
    <td style="text-align:right;"> 13 </td>
   </tr>
   <tr>
-   <td style="text-align:right;"> -73.97028 </td>
-   <td style="text-align:right;"> 40.77835 </td>
-   <td style="text-align:left;"> 16D-PM-1010-13 </td>
-   <td style="text-align:left;"> 16D </td>
+   <td style="text-align:right;"> -73.96066 </td>
+   <td style="text-align:right;"> 40.79562 </td>
+   <td style="text-align:left;"> 36A-PM-1013-08 </td>
+   <td style="text-align:left;"> 36A </td>
    <td style="text-align:left;"> PM </td>
-   <td style="text-align:right;"> 10102018 </td>
-   <td style="text-align:right;"> 13 </td>
-   <td style="text-align:left;"> Adult </td>
+   <td style="text-align:right;"> 10132018 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> NA </td>
    <td style="text-align:left;"> Gray </td>
    <td style="text-align:left;"> NA </td>
    <td style="text-align:left;"> Gray+ </td>
    <td style="text-align:left;"> NA </td>
    <td style="text-align:left;"> Ground Plane </td>
    <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> "FIELD" </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> running from #7 </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> TRUE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> POINT (-73.9702755805141 40.7783547795222) </td>
+   <td style="text-align:left;"> POINT (-73.960657061561 40.7956150744102) </td>
    <td style="text-align:right;"> NA </td>
    <td style="text-align:right;"> 19 </td>
    <td style="text-align:right;"> 4 </td>
@@ -376,113 +414,75 @@ The following object is masked from 'package:dplyr':
    <td style="text-align:right;"> 13 </td>
   </tr>
   <tr>
-   <td style="text-align:right;"> -73.97416 </td>
-   <td style="text-align:right;"> 40.77525 </td>
-   <td style="text-align:left;"> 11C-PM-1018-01 </td>
-   <td style="text-align:left;"> 11C </td>
-   <td style="text-align:left;"> PM </td>
-   <td style="text-align:right;"> 10182018 </td>
-   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> -73.97734 </td>
+   <td style="text-align:right;"> 40.77295 </td>
+   <td style="text-align:left;"> 7B-AM-1008-13 </td>
+   <td style="text-align:left;"> 07B </td>
+   <td style="text-align:left;"> AM </td>
+   <td style="text-align:right;"> 10082018 </td>
+   <td style="text-align:right;"> 13 </td>
    <td style="text-align:left;"> Adult </td>
+   <td style="text-align:left;"> Gray </td>
+   <td style="text-align:left;"> Cinnamon </td>
+   <td style="text-align:left;"> Gray+Cinnamon </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Ground Plane </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> POINT (-73.9773361580792 40.7729478226715) </td>
+   <td style="text-align:right;"> NA </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:right;"> 13 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> -73.98095 </td>
+   <td style="text-align:right;"> 40.76857 </td>
+   <td style="text-align:left;"> 2A-PM-1019-04 </td>
+   <td style="text-align:left;"> 02A </td>
+   <td style="text-align:left;"> PM </td>
+   <td style="text-align:right;"> 10192018 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> Juvenile </td>
    <td style="text-align:left;"> Gray </td>
    <td style="text-align:left;"> White </td>
    <td style="text-align:left;"> Gray+White </td>
    <td style="text-align:left;"> NA </td>
    <td style="text-align:left;"> Above Ground </td>
-   <td style="text-align:left;"> 10 </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> TRUE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> TRUE </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> POINT (-73.9741621946917 40.7752481472025) </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> 19 </td>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:right;"> 19 </td>
-   <td style="text-align:right;"> 13 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> -73.97428 </td>
-   <td style="text-align:right;"> 40.77547 </td>
-   <td style="text-align:left;"> 11B-AM-1007-02 </td>
-   <td style="text-align:left;"> 11B </td>
-   <td style="text-align:left;"> AM </td>
-   <td style="text-align:right;"> 10072018 </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:left;"> Adult </td>
-   <td style="text-align:left;"> Gray </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> Gray+ </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> Ground Plane </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> 15 </td>
+   <td style="text-align:left;"> in tree! </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> POINT (-73.974275954985 40.7754723879307) </td>
-   <td style="text-align:right;"> NA </td>
-   <td style="text-align:right;"> 19 </td>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:right;"> 19 </td>
-   <td style="text-align:right;"> 13 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> -73.97221 </td>
-   <td style="text-align:right;"> 40.77613 </td>
-   <td style="text-align:left;"> 13C-PM-1019-05 </td>
-   <td style="text-align:left;"> 13C </td>
-   <td style="text-align:left;"> PM </td>
-   <td style="text-align:right;"> 10192018 </td>
-   <td style="text-align:right;"> 5 </td>
-   <td style="text-align:left;"> Adult </td>
-   <td style="text-align:left;"> Gray </td>
-   <td style="text-align:left;"> Cinnamon </td>
-   <td style="text-align:left;"> Gray+Cinnamon </td>
-   <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> Ground Plane </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> NA </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> FALSE </td>
-   <td style="text-align:left;"> TRUE </td>
-   <td style="text-align:left;"> TRUE </td>
-   <td style="text-align:left;"> NA </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> TRUE </td>
-   <td style="text-align:left;"> TRUE </td>
-   <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> NA </td>
-   <td style="text-align:left;"> POINT (-73.972212563004 40.7761311465857) </td>
+   <td style="text-align:left;"> POINT (-73.980948293606 40.7685688850628) </td>
    <td style="text-align:right;"> NA </td>
    <td style="text-align:right;"> 19 </td>
    <td style="text-align:right;"> 4 </td>
@@ -512,10 +512,10 @@ The following object is masked from 'package:dplyr':
  4 Gray             
  5 Gray             
  6 Gray             
- 7 Cinnamon         
+ 7 &lt;NA&gt;             
  8 Gray             
  9 Gray             
-10 Cinnamon         
+10 Gray             
 # … with 1,501 more rows</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>exploratory_data <span class="sc">%&gt;%</span></span>
@@ -524,10 +524,10 @@ The following object is masked from 'package:dplyr':
 <pre><code># A tibble: 4 × 2
   primary_fur_color     n
   &lt;chr&gt;             &lt;int&gt;
-1 Black                56
-2 Cinnamon            189
-3 Gray               1241
-4 &lt;NA&gt;                 25</code></pre>
+1 Black                49
+2 Cinnamon            211
+3 Gray               1224
+4 &lt;NA&gt;                 27</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>exploratory_data <span class="sc">%&gt;%</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
@@ -546,10 +546,10 @@ The following object is masked from 'package:dplyr':
 <pre><code># A tibble: 4 × 2
   age          n
   &lt;chr&gt;    &lt;int&gt;
-1 ?            1
-2 Adult     1286
-3 Juvenile   163
-4 &lt;NA&gt;        61</code></pre>
+1 ?            2
+2 Adult     1262
+3 Juvenile   184
+4 &lt;NA&gt;        63</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>exploratory_data <span class="sc">%&gt;%</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
@@ -587,8 +587,8 @@ The following object is masked from 'package:dplyr':
 <pre><code># A tibble: 2 × 2
   shift     n
   &lt;chr&gt; &lt;int&gt;
-1 AM      625
-2 PM      886</code></pre>
+1 AM      666
+2 PM      845</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>exploratory_data <span class="sc">%&gt;%</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
@@ -770,7 +770,7 @@ hectare
 0
 </td>
 <td style="text-align:right;">
-320
+317
 </td>
 <td style="text-align:right;">
 0
@@ -807,7 +807,7 @@ shift
 age
 </td>
 <td style="text-align:right;">
-61
+63
 </td>
 <td style="text-align:right;">
 0.96
@@ -833,7 +833,7 @@ age
 primary_fur_color
 </td>
 <td style="text-align:right;">
-25
+27
 </td>
 <td style="text-align:right;">
 0.98
@@ -859,7 +859,7 @@ primary_fur_color
 highlight_fur_color
 </td>
 <td style="text-align:right;">
-544
+537
 </td>
 <td style="text-align:right;">
 0.64
@@ -900,7 +900,7 @@ combination_of_primary_and_highlight_color
 0
 </td>
 <td style="text-align:right;">
-22
+21
 </td>
 <td style="text-align:right;">
 0
@@ -911,7 +911,7 @@ combination_of_primary_and_highlight_color
 color_notes
 </td>
 <td style="text-align:right;">
-1419
+1422
 </td>
 <td style="text-align:right;">
 0.06
@@ -920,13 +920,13 @@ color_notes
 3
 </td>
 <td style="text-align:right;">
-153
+120
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
-78
+75
 </td>
 <td style="text-align:right;">
 0
@@ -937,7 +937,7 @@ color_notes
 location
 </td>
 <td style="text-align:right;">
-24
+31
 </td>
 <td style="text-align:right;">
 0.98
@@ -963,10 +963,10 @@ location
 above_ground_sighter_measurement
 </td>
 <td style="text-align:right;">
-46
+58
 </td>
 <td style="text-align:right;">
-0.97
+0.96
 </td>
 <td style="text-align:right;">
 1
@@ -978,7 +978,7 @@ above_ground_sighter_measurement
 0
 </td>
 <td style="text-align:right;">
-34
+35
 </td>
 <td style="text-align:right;">
 0
@@ -989,7 +989,7 @@ above_ground_sighter_measurement
 specific_location
 </td>
 <td style="text-align:right;">
-1273
+1263
 </td>
 <td style="text-align:right;">
 0.16
@@ -1004,7 +1004,7 @@ specific_location
 0
 </td>
 <td style="text-align:right;">
-179
+183
 </td>
 <td style="text-align:right;">
 0
@@ -1015,13 +1015,13 @@ specific_location
 other_activities
 </td>
 <td style="text-align:right;">
-1292
+1307
 </td>
 <td style="text-align:right;">
 0.14
 </td>
 <td style="text-align:right;">
-4
+6
 </td>
 <td style="text-align:right;">
 132
@@ -1030,7 +1030,7 @@ other_activities
 0
 </td>
 <td style="text-align:right;">
-169
+166
 </td>
 <td style="text-align:right;">
 0
@@ -1041,7 +1041,7 @@ other_activities
 other_interactions
 </td>
 <td style="text-align:right;">
-1384
+1392
 </td>
 <td style="text-align:right;">
 0.08
@@ -1056,7 +1056,7 @@ other_interactions
 0
 </td>
 <td style="text-align:right;">
-110
+104
 </td>
 <td style="text-align:right;">
 0
@@ -1073,7 +1073,7 @@ lat_long
 1.00
 </td>
 <td style="text-align:right;">
-39
+38
 </td>
 <td style="text-align:right;">
 45
@@ -1125,10 +1125,10 @@ running
 1
 </td>
 <td style="text-align:right;">
-0.23
+0.24
 </td>
 <td style="text-align:left;">
-FAL: 1158, TRU: 353
+FAL: 1147, TRU: 364
 </td>
 </tr>
 <tr>
@@ -1142,10 +1142,10 @@ chasing
 1
 </td>
 <td style="text-align:right;">
-0.10
+0.09
 </td>
 <td style="text-align:left;">
-FAL: 1366, TRU: 145
+FAL: 1371, TRU: 140
 </td>
 </tr>
 <tr>
@@ -1159,10 +1159,10 @@ climbing
 1
 </td>
 <td style="text-align:right;">
-0.21
+0.22
 </td>
 <td style="text-align:left;">
-FAL: 1192, TRU: 319
+FAL: 1179, TRU: 332
 </td>
 </tr>
 <tr>
@@ -1176,10 +1176,10 @@ eating
 1
 </td>
 <td style="text-align:right;">
-0.27
+0.24
 </td>
 <td style="text-align:left;">
-FAL: 1102, TRU: 409
+FAL: 1143, TRU: 368
 </td>
 </tr>
 <tr>
@@ -1193,10 +1193,10 @@ foraging
 1
 </td>
 <td style="text-align:right;">
-0.48
+0.47
 </td>
 <td style="text-align:left;">
-FAL: 784, TRU: 727
+FAL: 794, TRU: 717
 </td>
 </tr>
 <tr>
@@ -1210,10 +1210,10 @@ kuks
 1
 </td>
 <td style="text-align:right;">
-0.03
+0.04
 </td>
 <td style="text-align:left;">
-FAL: 1461, TRU: 50
+FAL: 1456, TRU: 55
 </td>
 </tr>
 <tr>
@@ -1227,10 +1227,10 @@ quaas
 1
 </td>
 <td style="text-align:right;">
-0.01
+0.02
 </td>
 <td style="text-align:left;">
-FAL: 1489, TRU: 22
+FAL: 1483, TRU: 28
 </td>
 </tr>
 <tr>
@@ -1264,7 +1264,7 @@ tail_flags
 0.05
 </td>
 <td style="text-align:left;">
-FAL: 1434, TRU: 77
+FAL: 1432, TRU: 79
 </td>
 </tr>
 <tr>
@@ -1298,7 +1298,7 @@ approaches
 0.06
 </td>
 <td style="text-align:left;">
-FAL: 1413, TRU: 98
+FAL: 1419, TRU: 92
 </td>
 </tr>
 <tr>
@@ -1312,10 +1312,10 @@ indifferent
 1
 </td>
 <td style="text-align:right;">
-0.47
+0.48
 </td>
 <td style="text-align:left;">
-FAL: 802, TRU: 709
+FAL: 793, TRU: 718
 </td>
 </tr>
 <tr>
@@ -1329,10 +1329,10 @@ runs_from
 1
 </td>
 <td style="text-align:right;">
-0.23
+0.24
 </td>
 <td style="text-align:left;">
-FAL: 1158, TRU: 353
+FAL: 1153, TRU: 358
 </td>
 </tr>
 </tbody>
@@ -1411,7 +1411,7 @@ long
 -73.95
 </td>
 <td style="text-align:left;">
-▅▇▅▆▂
+▆▇▅▆▃
 </td>
 </tr>
 <tr>
@@ -1431,7 +1431,7 @@ lat
 0.01
 </td>
 <td style="text-align:right;">
-40.77
+40.76
 </td>
 <td style="text-align:right;">
 40.77
@@ -1460,10 +1460,10 @@ date
 1
 </td>
 <td style="text-align:right;">
-10120502.45
+10119615.62
 </td>
 <td style="text-align:right;">
-42700.48
+42836.35
 </td>
 <td style="text-align:right;">
 10062018.00
@@ -1481,7 +1481,7 @@ date
 10202018.00
 </td>
 <td style="text-align:left;">
-▇▃▇▂▃
+▇▂▇▂▃
 </td>
 </tr>
 <tr>
@@ -1495,10 +1495,10 @@ hectare_squirrel_number
 1
 </td>
 <td style="text-align:right;">
-4.19
+4.16
 </td>
 <td style="text-align:right;">
-3.16
+3.10
 </td>
 <td style="text-align:right;">
 1.00
@@ -1524,34 +1524,34 @@ hectare_squirrel_number
 zip_codes
 </td>
 <td style="text-align:right;">
-1506
+1507
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
-11489.20
+11255.75
 </td>
 <td style="text-align:right;">
-1277.29
-</td>
-<td style="text-align:right;">
-10090.00
+1346.09
 </td>
 <td style="text-align:right;">
 10090.00
 </td>
 <td style="text-align:right;">
-12420.00
+10090.00
 </td>
 <td style="text-align:right;">
-12423.00
+11255.00
+</td>
+<td style="text-align:right;">
+12420.75
 </td>
 <td style="text-align:right;">
 12423.00
 </td>
 <td style="text-align:left;">
-▅▁▁▁▇
+▇▁▁▁▇
 </td>
 </tr>
 <tr>
@@ -1565,7 +1565,7 @@ community_districts
 1
 </td>
 <td style="text-align:right;">
-19.00
+19.01
 </td>
 <td style="text-align:right;">
 0.15
@@ -1635,10 +1635,10 @@ city_council_districts
 1
 </td>
 <td style="text-align:right;">
-19.06
+19.05
 </td>
 <td style="text-align:right;">
-1.32
+1.24
 </td>
 <td style="text-align:right;">
 19.00
@@ -1673,7 +1673,7 @@ police_precincts
 13.00
 </td>
 <td style="text-align:right;">
-0.20
+0.15
 </td>
 <td style="text-align:right;">
 11.00
@@ -1707,8 +1707,8 @@ police_precincts
 <pre><code># A tibble: 2 × 2
   foraging     n
   &lt;lgl&gt;    &lt;int&gt;
-1 FALSE      784
-2 TRUE       727</code></pre>
+1 FALSE      794
+2 TRUE       717</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>exploratory_data <span class="sc">%&gt;%</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span> (moans)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
