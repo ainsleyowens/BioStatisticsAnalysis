@@ -58,6 +58,8 @@ This table represents the geographical, physical, and behavioral features of the
 
 #### What is the most common fur color? How many squirrels of each fur color are there?
 
+Here I use the `select()` tool to isolate the primary fur color column and then the `count()` tool to summarize the amount of squirrels per fur color. Then, using the `ggplot()` tool, I was able to visualize the data into a bar graph.
+
 ```{r}
 exploratory_data %>%
   select(primary_fur_color)
@@ -73,6 +75,8 @@ The most common fur color is gray, with 1,223 squirrels followed by cinnamon, 20
 
 #### How many juveniles and adults are there?
 
+Here, I again used the `count()` tool to summarize the amount of squirrels per age group (age) and `ggplot()` to visualize the data.
+
 ```{r}
 exploratory_data %>% 
   count (age)
@@ -86,9 +90,11 @@ There are more adult squirrels than juveniles. From the sample, there were 1,273
 
 #### Are squirrels more likely to be above ground or on the ground plane?
 
+Here, I again used the `count()` tool to summarize the amount of squirrels per location observed (location) and `ggplot()` to visualize the data.
+
 ```{r}
 exploratory_data %>% 
-  count
+  count (location)
 exploratory_data %>%
   ggplot() +
   geom_bar(mapping = aes(x = location), fill = "pink", color= "black") +
@@ -100,6 +106,8 @@ exploratory_data %>%
 Squirrels were seen more on the ground plane than above ground in this dataset. There were 1,064 squirrels seen on the ground plane compared to only 425 above ground. Squirrels may spend more time on the ground plane rather than above ground, but this may also be explained by the fact that it is more difficult to find squirrels in trees. Because this analysis is run on data only provided by the NYC Central Park Squirrels Census dataset, this exploratory hypothesis cannot be generalized for the species as a whole, but just for this sample.
 
 #### Are squirrels seen more at night or during the day?
+
+Here, I again used the `count()` tool to summarize the amount of squirrels per time of day observed (shift) and `ggplot()` to visualize the data.
 
 ```{r}
 exploratory_data %>%
@@ -114,6 +122,8 @@ Squirrels were seen more at night than during the day, although the difference w
 
 #### What is the most commonly seen behavior?
 
+Here, I downloaded the skimr package. The `skim()` tool summarizes and gives numerical values for data. This was necessary to analyze behavior because the observations in this dataset were recorded as false/true for observation per behavior. Utilizing this tool allowed me to determine which behaviors were the most and least commonly observed.
+
 ```{r}
 #install.packages("skimr")
 library(skimr)
@@ -121,7 +131,7 @@ exploratory_data %>%
   skim()
 ```
 
-The most commonly seen behavior is foraging. The least commonly seen behavior is moans.
+Here, I used the `count()` tool to separate the numerical values of the most and least commonly observed behaviors.
 
 ```{r}
 exploratory_data %>%
@@ -130,11 +140,14 @@ exploratory_data %>%
   count (moans)
 ```
 
+The most commonly seen behavior is foraging. The least commonly seen behavior is moans
 717 squirrels from the sample were observed foraging. Foraging is necessary for survival, which explains why this is the most commonly observed behavior. Moans are a behavior used to communicate with other squirrels to identify the presence or lack of predators. These moans are very quiet, which may account for why only one squirrel was observed displaying this behavior.
 
 #### Does behavior differ among juveniles and adults?
 
 This data frame will show how commonly different behaviors are observed between adults and juveniles.
+
+Here, I use the `filter()` tool to remove the squirrels whose ages were not observed from the dataset to remove those observations because they would not contribute to this analysis. I then used the `group_by()` tool to categorize the behavioral data by age (juveniles and adults). Again, because this dataset features behavioral observations in a false/true manner, I used the `summarize()` tool to quantify numerical quantities for each behavior per age group.
 
 ```{r}
 exploratory_data %>%
@@ -146,6 +159,8 @@ exploratory_data %>%
 ```
 
 Because the observation format of this dataset features "false/true" observations for behaviors, it can make analysis difficult. This data frame represents the numerical proportion of times each behavior is being observed ("true") so that we are able to determine differences between behavior in groups. The groups in this data form are adults and juveniles. This data form shows that there are differences in behavior based on age. Adults were observed more foraging and climbing than juveniles, while juveniles were observed more running and chasing than adults. This may be because adult squirrels are focused primarily on survival, while juveniles may be more likely to partake in "playful" behaviors with one another. It is also important to remember that there are more adults than juveniles in this dataset, so it may not be an accurate representation of behavior among different age groups.
+
+Here, still using the `filter()` tool to remove the squirrels whose ages were not observed, I used `ggplot()` to visualize the data, representing the differences in most and least commonly observed behaviors per age group.
 
 ```{r}
 exploratory_data %>%
@@ -168,6 +183,8 @@ This graph shows the differences in frequency of behavior between adults and juv
 
 #### Does behavior differ dependent on time of day?
 
+Here, I use the `filter()` tool to remove the "na" observations from the dataset. Using the `groupby()` tool, I am able to categorize the data between AM and PM observations. The `summarize()` tool provided numerical values for the behavioral frequencies. I included all behaviors to determine which behaviors occurred more or less commonly at different times of day.
+
 This data frame will show how behavior differs dependent on time of day, AM or PM.
 
 ```{r}
@@ -179,7 +196,9 @@ exploratory_data %>%
 
 ```
 
-This data form shows that certain behaviors, like moans, chasing, climbing, kuks, tail twitches, and approaches are more commonly observed in the morning/daytime, while behaviors like running away, tail flags, quaas, eating, foraging, and running are more commonly observed in the evening/nighttime. Previous analysis shows that squirrels are more commonly observed at night, so it is interesting to compare what behaviors are more commonly observed at different times throughout the day. This dataset is representative only of observed behaviors in the NYC Central Park squirrel population, as the squirrels are observed in their natural habitat and not under 24/7 observation in a laboratory setting, so it is possible that this analysis does not accurately describe general squirrel behavior and patterns, although it does allow us to draw conclusions about the behaviors of this particular sample.
+This data frame shows that certain behaviors, like moans, chasing, climbing, kuks, tail twitches, and approaches are more commonly observed in the morning/daytime, while behaviors like running away, tail flags, quaas, eating, foraging, and running are more commonly observed in the evening/nighttime. Previous analysis shows that squirrels are more commonly observed at night, so it is interesting to compare what behaviors are more commonly observed at different times throughout the day. This dataset is representative only of observed behaviors in the NYC Central Park squirrel population, as the squirrels are observed in their natural habitat and not under 24/7 observation in a laboratory setting, so it is possible that this analysis does not accurately describe general squirrel behavior and patterns, although it does allow us to draw conclusions about the behaviors of this particular sample.
+
+Here, still using the `filter()` tool to remove the squirrels whose ages were not observed, I used `ggplot()` to visualize the data, representing the differences in most and least commonly observed behaviors per time of day (AM and PM).
 
 ```{r}
 exploratory_data %>%
